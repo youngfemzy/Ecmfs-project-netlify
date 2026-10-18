@@ -1,19 +1,19 @@
 // Images served from /public/img/ — replace any file at the same path without touching code
 export const images = {
   // Hero background — MV under the travel lift in Lagos shipyard (brochure cover)
-  hero:      "/img/hero-alt.jpg",
+  hero:      "/img/hero/hero-alt.jpg",
   // MV KENA on the slipway beside palm trees
-  kena:      "/img/kena.jpg",
+  kena:      "/img/vessel/kena-photo.jpg",
   // MV KENA underway on the water
-  kenaWater: "/img/kena-water.jpg",
+  kenaWater: "/img/vessel/kena-water.jpg",
   // Large ship at the Lagos shipyard — vessel construction context
-  shipyard:  "/img/hero.jpg",
+  shipyard:  "/img/hero/hero.jpg",
   // Founder portrait
-  founder:   "/img/founder.jpg",
+  founder:   "/img/team/founder.jpg",
   // Francis D'Cruz portrait (small, ~146 px wide; use avatar size)
-  francis:   "/img/francis.jpg",
+  francis:   "/img/team/francis.jpg",
   // Floating home — concrete flotation systems context
-  floats:    "/img/ref-floating-home.jpg",
+  floats:    "/img/concrete-floats/floating-homes.jpg",
   // Logo mark (same file used for favicon)
   logo:      "/favicon.png",
 };
