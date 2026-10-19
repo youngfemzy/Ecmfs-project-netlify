@@ -4,13 +4,14 @@ import { Button } from '@/components/ui/button';
 import { images, vesselConstruction } from '../content';
 import { Slide, Squares, Photo } from '../Motion';
 
-export function AluminiumSteelAbove85Page(){
+export function AluminiumSteelAbove85Page() {
   return (
+
     <div className="service-individual-page">
       <div className="service-page-hero" style={{ backgroundImage: `url(${images.hero})` }}>
-        <div className="service-page-hero-overlay"/>
+        <div className="service-page-hero-overlay" />
         <div className="site-container service-page-hero-content">
-          <p className="eyebrow"><Squares/>ECMFS Shipbuilding Services</p>
+          <p className="eyebrow"><Squares />ECMFS Shipbuilding Services</p>
           <h1>Aluminium & Steel Boat Construction Above 85ft</h1>
         </div>
       </div>
@@ -19,7 +20,7 @@ export function AluminiumSteelAbove85Page(){
         <div className="two-column">
           <Slide index={0}>
             <div className="body-copy service-body">
-              <p className="eyebrow"><Squares/>Deepwater & Commercial Vessels</p>
+              <p className="eyebrow"><Squares />Deepwater & Commercial Vessels</p>
               <h2>Large Vessel Capabilities Above 85ft</h2>
               {vesselConstruction.map((p, i) => (
                 <p key={i}>{p}</p>
@@ -36,7 +37,7 @@ export function AluminiumSteelAbove85Page(){
       <section className="section-navy angled-section" style={{ paddingBlock: 'calc(3.5vw + 4rem) 5rem' }}>
         <div className="site-container">
           <Slide>
-            <p className="eyebrow"><Squares/>Apapa Partner Shipyard Facility</p>
+            <p className="eyebrow"><Squares />Apapa Partner Shipyard Facility</p>
             <h2>Large Scale Commercial Marine Assets</h2>
             <div className="body-copy" style={{ maxWidth: '60rem', marginTop: '1.5rem' }}>
               <p>

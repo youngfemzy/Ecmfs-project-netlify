@@ -47,6 +47,7 @@ export function ServicesMapPage(){
         {/* Left service 1: Under 85ft */}
         <Link
           to="/services/aluminium-steel"
+          hash="under-85ft"
           className="ecms-service-map__service ecms-service-map__service--left-one ecms-service-link"
         >
           <span>Aluminum and steel boat construction under 85ft</span>
@@ -55,7 +56,8 @@ export function ServicesMapPage(){
 
         {/* Left service 2: Above 85ft */}
         <Link
-          to="/services/aluminium-steel-above-85ft"
+          to="/services/aluminium-steel"
+          hash="above-85ft"
           className="ecms-service-map__service ecms-service-map__service--left-two ecms-service-link"
         >
           <span>Aluminium and steel boat construction above 85ft</span>

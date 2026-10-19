@@ -18,6 +18,7 @@ import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as VesselRouteImport } from './routes/vessel'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesAluminiumSteelRouteImport } from './routes/services.aluminium-steel'
 import { Route as ServicesAluminiumSteelAbove85ftRouteImport } from './routes/services.aluminium-steel-above-85ft'
 import { Route as ServicesBoatMaintenanceRouteImport } from './routes/services.boat-maintenance'
@@ -70,6 +71,11 @@ const VesselRoute = VesselRouteImport.update({
   path: '/vessel',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ServicesAluminiumSteelRoute = ServicesAluminiumSteelRouteImport.update({
   id: '/aluminium-steel',
   path: '/aluminium-steel',
@@ -119,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/services/concrete-floats': typeof ServicesConcreteFloatsRoute
   '/services/yacht-construction': typeof ServicesYachtConstructionRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -127,7 +134,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
   '/resources': typeof ResourcesRoute
-  '/services': typeof ServicesRouteWithChildren
   '/team': typeof TeamRoute
   '/vessel': typeof VesselRoute
   '/services/aluminium-steel': typeof ServicesAluminiumSteelRoute
@@ -136,6 +142,7 @@ export interface FileRoutesByTo {
   '/services/concrete-floats': typeof ServicesConcreteFloatsRoute
   '/services/yacht-construction': typeof ServicesYachtConstructionRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -154,6 +161,7 @@ export interface FileRoutesById {
   '/services/concrete-floats': typeof ServicesConcreteFloatsRoute
   '/services/yacht-construction': typeof ServicesYachtConstructionRoute
   '/team_/$slug': typeof TeamSlugRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -173,6 +181,7 @@ export interface FileRouteTypes {
     | '/services/concrete-floats'
     | '/services/yacht-construction'
     | '/team/$slug'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -181,7 +190,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/founder'
     | '/resources'
-    | '/services'
     | '/team'
     | '/vessel'
     | '/services/aluminium-steel'
@@ -190,6 +198,7 @@ export interface FileRouteTypes {
     | '/services/concrete-floats'
     | '/services/yacht-construction'
     | '/team/$slug'
+    | '/services'
   id:
     | '__root__'
     | '/'
@@ -207,6 +216,7 @@ export interface FileRouteTypes {
     | '/services/concrete-floats'
     | '/services/yacht-construction'
     | '/team_/$slug'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -287,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VesselRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/aluminium-steel': {
       id: '/services/aluminium-steel'
       path: '/aluminium-steel'
@@ -338,6 +355,7 @@ interface ServicesRouteChildren {
   ServicesBoatMaintenanceRoute: typeof ServicesBoatMaintenanceRoute
   ServicesConcreteFloatsRoute: typeof ServicesConcreteFloatsRoute
   ServicesYachtConstructionRoute: typeof ServicesYachtConstructionRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
@@ -346,6 +364,7 @@ const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesBoatMaintenanceRoute: ServicesBoatMaintenanceRoute,
   ServicesConcreteFloatsRoute: ServicesConcreteFloatsRoute,
   ServicesYachtConstructionRoute: ServicesYachtConstructionRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(

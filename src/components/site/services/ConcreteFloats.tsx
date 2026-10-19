@@ -1,64 +1,95 @@
 import { Link } from '@tanstack/react-router';
 import { ArrowUpRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { services } from '../content';
-import { Slide, Squares, Photo } from '../Motion';
 
-export function ConcreteFloatsPage(){
-  const s = services[1];
+export function ConcreteFloatsPage() {
   return (
-    <div className="service-individual-page">
-      <div className="service-page-hero concrete-hero" style={{ backgroundImage: `url(${s.photo})` }}>
-        <div className="service-page-hero-overlay"/>
-        <div className="site-container service-page-hero-content">
-          <p className="eyebrow"><Squares/>ECMFS Shipbuilding Services</p>
-          <h1>Concrete Floats</h1>
-        </div>
+    <section className="ecms-concrete-floats">
+      {/* Yellow angled title banner */}
+      <h2 className="ecms-concrete-floats__heading">
+        Concrete Floats
+      </h2>
+
+      {/* Six-card gallery */}
+      <div className="ecms-concrete-floats__grid">
+        <Link to="/contact" className="ecms-concrete-floats__card">
+          <img
+            src="/img/concrete-floats/specialty_float.jpg"
+            alt="Specialty float"
+            loading="lazy"
+          />
+          <span className="ecms-concrete-floats__caption">
+            Specialty Float
+          </span>
+        </Link>
+
+        <Link to="/contact" className="ecms-concrete-floats__card">
+          <img
+            src="/img/concrete-floats/wave_attenuator.jpg"
+            alt="Wave attenuator"
+            loading="lazy"
+          />
+          <span className="ecms-concrete-floats__caption">
+            Wave Attenuator
+          </span>
+        </Link>
+
+        <Link to="/contact" className="ecms-concrete-floats__card">
+          <img
+            src="/img/concrete-floats/commercial_structures.jpg"
+            alt="Commercial structures"
+            loading="lazy"
+          />
+          <span className="ecms-concrete-floats__caption">
+            Commercial Structures
+          </span>
+        </Link>
+
+        <Link to="/contact" className="ecms-concrete-floats__card">
+          <img
+            src="/img/concrete-floats/floating_homes.jpg"
+            alt="Floating homes"
+            loading="lazy"
+          />
+          <span className="ecms-concrete-floats__caption">
+            Floating Homes
+          </span>
+        </Link>
+
+        <Link to="/contact" className="ecms-concrete-floats__card">
+          <img
+            src="/img/concrete-floats/marinas.jpg"
+            alt="Marinas"
+            loading="lazy"
+          />
+          <span className="ecms-concrete-floats__caption">
+            Marinas
+          </span>
+        </Link>
+
+        <Link to="/contact" className="ecms-concrete-floats__card">
+          <img
+            src="/img/concrete-floats/yacht_enclosures.jpg"
+            alt="Yacht enclosures"
+            loading="lazy"
+          />
+          <span className="ecms-concrete-floats__caption">
+            Yacht Enclosures
+          </span>
+        </Link>
       </div>
 
-      {/* Floating Concrete Foundations description */}
-      <section className="section-navy concrete-description-section">
-        <div className="site-container two-column">
-          <Slide index={0}>
-            <div className="body-copy">
-              <h2 className="section-title-blue">Floating Concrete Foundations</h2>
-              {s.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
-            </div>
-          </Slide>
-          <Slide index={1}>
-            <Photo src="/img/concrete-floats/marinas.jpg" alt="Marina concrete flotation system" />
-          </Slide>
-        </div>
-      </section>
+      <br />
+      <br />
 
-      {/* Concrete floats applications gallery */}
-      <section className="site-container concrete-gallery-section">
-        <Slide>
-          <p className="eyebrow"><Squares/>Engineered Applications</p>
-          <h2>Concrete Flotation Solutions</h2>
-        </Slide>
-        <div className="concrete-grid">
-          {[
-            ["/img/ref-marina-structure.jpg", "SPECIALTY FLOAT"],
-            ["/img/ref-pilot2.jpg", "WAVE ATTENUATOR"],
-            ["/img/concrete-floats/floating-homes.jpg", "COMMERCIAL STRUCTURES"],
-            ["/img/kena-water.jpg", "FLOATING HOMES"],
-            ["/img/concrete-floats/marinas.jpg", "MARINAS"],
-            ["/img/ref-barge.jpg", "YACHT ENCLOSURES"],
-          ].map(([src, label]) => (
-            <Slide key={label} className="concrete-card">
-              <img src={src} alt={label} loading="lazy" />
-              <span className="concrete-label">{label}</span>
-            </Slide>
-          ))}
-        </div>
-
-        <div style={{ marginTop: '3.5rem', textAlign: 'center' }}>
-          <Button variant="marine" asChild>
-            <Link to="/contact">Plan Your Waterfront Float Project <ArrowUpRight /></Link>
-          </Button>
-        </div>
-      </section>
-    </div>
+      {/* Engineering info & consultation */}
+      <div className="ecms-concrete-info-bar">
+        <p>
+          Heavy-duty marine concrete flotation platforms engineered for wave attenuation, commercial waterfront architecture, private luxury marinas, and durable offshore structures.
+        </p>
+        <Link to="/contact" className="ecms-yacht-cta-btn">
+          Inquire About Concrete Floats <ArrowUpRight size={16} />
+        </Link>
+      </div>
+    </section>
   );
 }

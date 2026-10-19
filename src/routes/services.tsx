@@ -1,11 +1,5 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { ServicesMapPage } from '@/components/site/services/ServicesMap';
-import { pageHead } from '@/components/site/content';
+import { createFileRoute, Outlet } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/services')({
-  head: () => pageHead(
-    'Marine Construction Services',
-    'ECMFS shipbuilding services: Aluminium & steel boat construction under and above 85ft, concrete floats, boat maintenance and management, and yacht construction and brokering.'
-  ),
-  component: ServicesMapPage,
+  component: () => <Outlet />,
 });
