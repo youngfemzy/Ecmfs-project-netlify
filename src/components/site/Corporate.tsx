@@ -17,7 +17,7 @@ export function AboutPage(){
 
     {/* Intro section */}
     <section className="site-container about-intro">
-      <Slide index={0}><Photo src={images.kena} alt="MV KENA on the slipway at the Lekki facility"/></Slide>
+      <Slide index={0}><Photo src={images.kena} alt="MV KENA on the slipway at the Lekki facility" className="about-intro-photo"/></Slide>
       <Slide index={1}>
         <div className="body-copy">
           {about.map(p=><p key={p.slice(0,30)}>{p}</p>)}
@@ -39,22 +39,33 @@ export function AboutPage(){
       </div>
     </section>
 
-    {/* Mission & Vision */}
-    {([
-      ["Mission", mission, images.hero, "Vessel at the Lagos shipyard under the travel lift"],
-      ["Vision", vision, images.kenaWater, "MV KENA underway on the water"],
-    ] as const).map(([title, text, src, alt], i)=>(
-      <section className={`angled-section ${i%2 ? 'section-mist' : 'section-crimson'}`} key={title}>
-        <div className={`site-container two-column ${i%2 ? 'reverse' : ''}`}>
-          <Slide index={i*2}><Photo src={src} alt={alt}/></Slide>
-          <Slide index={i*2+1}>
-            <p className="eyebrow"><Squares/>ECMFS</p>
-            <h2>Our {title}</h2>
-            <p className="large-copy">{text}</p>
-          </Slide>
+    {/* Unified Mission & Vision Section */}
+    <section className="mission-vision-section">
+      <div className="mv-angle" />
+      <div className="mv-banner">
+        OUR VISION &amp; MISSION
+      </div>
+      <div className="mv-content">
+        <div className="mv-panel">
+          <h2>Our Mission</h2>
+          <p>
+            To deliver world class marine-related infrastructure and
+            services while maximizing the use of a trained/qualified
+            local labor force as well as a local vendor supply
+            network to meet a wide range of client needs.
+          </p>
         </div>
-      </section>
-    ))}
+        <div className="mv-panel">
+          <h2>Our Vision</h2>
+          <p>
+            To realize operational excellence in our field of expertise
+            in order to be competitive in the global marketplace, and
+            thereby secure a sizeable market share within Nigeria and
+            regional market.
+          </p>
+        </div>
+      </div>
+    </section>
 
     {/* Health & Safety */}
     <section className="site-container safety-section">

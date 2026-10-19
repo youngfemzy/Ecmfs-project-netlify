@@ -207,6 +207,29 @@
 /* About */
 .about-intro { display: grid; gap: 3rem; align-items: center; padding-block: 4rem 6rem; }
 @media (min-width: 768px) { .about-intro { grid-template-columns: 1fr 1fr; } }
+.about-intro .photo-mask,
+.about-intro-photo {
+  max-height: 380px;
+  width: 100%;
+}
+.about-intro .clean-photo,
+.about-intro-photo .clean-photo {
+  max-height: 380px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+@media (max-width: 768px) {
+  .about-intro .photo-mask,
+  .about-intro-photo {
+    max-height: 290px;
+  }
+  .about-intro .clean-photo,
+  .about-intro-photo .clean-photo {
+    max-height: 290px;
+  }
+}
 .safety-section { padding-block: 5rem; max-width: 60rem; }
 
 /* Services */
@@ -388,13 +411,174 @@
 /* ──── Vessel Construction section in About ──── */
 .vessel-construction-section { padding-block: calc(3.5vw + 4rem) 5rem; }
 
-/* ──── Mission & Vision – Crimson section ──── */
-.section-crimson { background: #1a0505; color: var(--on-navy); }
-.section-crimson .eyebrow { color: #e8a0a0; }
-.section-crimson h2, .section-crimson h1 { color: var(--on-navy); }
-.section-crimson .large-copy { color: color-mix(in oklab, var(--on-navy) 85%, transparent); }
-.section-crimson .square-motif::before { background: #c0392b; }
-.section-crimson .square-motif::after { background: #e74c3c; }
+/* ──── Unified Mission & Vision Section (Brochure Style) ──── */
+.mission-vision-section {
+  position: relative;
+  width: 100%;
+  min-height: 650px;
+  background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  font-family: var(--font-sans), Arial, sans-serif;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.mission-vision-section *,
+.mission-vision-section *::before,
+.mission-vision-section *::after {
+  box-sizing: border-box;
+}
+
+/* Dark overlay over the background image */
+.mission-vision-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  z-index: 1;
+}
+
+/* Angled transparent shape on the right */
+.mission-vision-section .mv-angle {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  width: 34%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.38);
+  clip-path: polygon(0 0, 52% 0, 100% 100%, 40% 100%);
+  z-index: 2;
+}
+
+/* Top-right heading banner */
+.mission-vision-section .mv-banner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 41%;
+  min-height: 41px;
+  padding: 10px 20px 9px 35px;
+  background: #941719;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 11% 100%);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0.05em;
+  z-index: 4;
+}
+
+/* Main content */
+.mission-vision-section .mv-content {
+  position: relative;
+  z-index: 3;
+  width: 62%;
+  padding-top: 144px;
+  padding-bottom: 70px;
+}
+
+/* Mission and vision panels */
+.mission-vision-section .mv-panel {
+  position: relative;
+  padding: 23px 45px 32px 7.2vw;
+  background: rgba(0, 7, 18, 0.82);
+  clip-path: polygon(0 0, 82% 0, 100% 100%, 0 100%);
+}
+
+.mission-vision-section .mv-panel + .mv-panel {
+  margin-top: 13px;
+  padding-top: 20px;
+  padding-bottom: 35px;
+  background: rgba(0, 7, 18, 0.76);
+}
+
+.mission-vision-section .mv-panel h2 {
+  margin: 0 0 27px;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-transform: none;
+}
+
+.mission-vision-section .mv-panel p {
+  max-width: 570px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .mission-vision-section {
+    min-height: 600px;
+  }
+  .mission-vision-section .mv-content {
+    width: 78%;
+    padding-top: 120px;
+  }
+  .mission-vision-section .mv-panel {
+    padding-left: 5vw;
+    padding-right: 50px;
+  }
+  .mission-vision-section .mv-panel h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+  .mission-vision-section .mv-panel p {
+    font-size: 18px;
+  }
+  .mission-vision-section .mv-banner {
+    width: 48%;
+    font-size: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .mission-vision-section {
+    min-height: auto;
+    background-position: center;
+  }
+  .mission-vision-section .mv-banner {
+    position: relative;
+    width: 85%;
+    margin-left: auto;
+    min-height: 40px;
+    font-size: 14px;
+    padding: 10px 12px 8px 25px;
+  }
+  .mission-vision-section .mv-angle {
+    right: 0;
+    width: 35%;
+    opacity: 0.5;
+  }
+  .mission-vision-section .mv-content {
+    width: 100%;
+    padding-top: 65px;
+    padding-bottom: 45px;
+  }
+  .mission-vision-section .mv-panel,
+  .mission-vision-section .mv-panel + .mv-panel {
+    clip-path: none;
+    margin-top: 12px;
+    padding: 25px 24px;
+    background: rgba(0, 7, 18, 0.82);
+  }
+  .mission-vision-section .mv-panel h2 {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  .mission-vision-section .mv-panel p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
 
 /* ──── Founder Page ──── */
 .founder-hero { padding-top: 9rem; padding-bottom: 4rem; }
