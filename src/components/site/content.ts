@@ -37,8 +37,7 @@ export const safety = "We treat the protection and observance of health, safety 
 
 // Brochure slide 7 — services diagram items
 export const servicesList = [
-  { label: "Boat Construction (Under 85ft)", slug: "/services/aluminium-steel" },
-  { label: "Boat Construction (Above 85ft)", slug: "/services/aluminium-steel-above-85ft" },
+  { label: "Aluminium & Steel Boat Construction", slug: "/services/aluminium-steel" },
   { label: "Concrete Floats", slug: "/services/concrete-floats" },
   { label: "Boat Maintenance & Management", slug: "/services/boat-maintenance" },
   { label: "Yacht Construction & Brokering", slug: "/services/yacht-construction" },

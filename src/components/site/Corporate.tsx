@@ -4,23 +4,23 @@ import { Button } from '@/components/ui/button';
 import { about, mission, vision, safety, services, images, vesselConstruction } from './content';
 import { Slide, Photo, Squares } from './Motion';
 
-export function PageHeading({title,eyebrow,dark}:{title:string;eyebrow:string;dark?:boolean}){
-  return <div className={`page-heading site-container${dark?' page-heading-dark':''}`}>
-    <p className="eyebrow"><Squares/>{eyebrow}</p>
+export function PageHeading({ title, eyebrow, dark }: { title: string; eyebrow: string; dark?: boolean }) {
+  return <div className={`page-heading site-container${dark ? ' page-heading-dark' : ''}`}>
+    <p className="eyebrow"><Squares />{eyebrow}</p>
     <h1>{title}</h1>
   </div>
 }
 
-export function AboutPage(){
+export function AboutPage() {
   return <>
-    <PageHeading title="About ECMFS" eyebrow="ECMFS Shipbuilding"/>
+    <PageHeading title="About ECMFS" eyebrow="ECMFS Shipbuilding" />
 
     {/* Intro section */}
     <section className="site-container about-intro">
-      <Slide index={0}><Photo src={images.kena} alt="MV KENA on the slipway at the Lekki facility" className="about-intro-photo"/></Slide>
+      <Slide index={0}><Photo src={images.kena} alt="MV KENA on the slipway at the Lekki facility" className="about-intro-photo" /></Slide>
       <Slide index={1}>
         <div className="body-copy">
-          {about.map(p=><p key={p.slice(0,30)}>{p}</p>)}
+          {about.map(p => <p key={p.slice(0, 30)}>{p}</p>)}
         </div>
       </Slide>
     </section>
@@ -28,12 +28,12 @@ export function AboutPage(){
     {/* Vessel Construction */}
     <section className="section-navy angled-section vessel-construction-section">
       <div className="site-container two-column">
-        <Slide index={0}><Photo src={images.shipyard} alt="Large vessel at the Lagos shipyard"/></Slide>
+        <Slide index={0}><Photo src={images.shipyard} alt="Large vessel at the Lagos shipyard" /></Slide>
         <Slide index={1}>
-          <p className="eyebrow"><Squares/>Expertise</p>
-          <h2>Vessel Construction</h2>
+          <p className="eyebrow"><Squares />Expertise</p>
+          <h2 >Vessel Construction</h2>
           <div className="body-copy">
-            {vesselConstruction.map((p,i)=><p key={i}>{p}</p>)}
+            {vesselConstruction.map((p, i) => <p key={i}>{p}</p>)}
           </div>
         </Slide>
       </div>
@@ -67,16 +67,42 @@ export function AboutPage(){
       </div>
     </section>
 
-    {/* Health & Safety */}
-    <section className="site-container safety-section">
-      <Slide>
-        <p className="eyebrow"><Squares/>Corporate responsibility</p>
-        <h2>Health, Safety and Environment</h2>
-        <p className="large-copy">{safety}</p>
-        <Button variant="marine" asChild>
-          <Link to="/founder">Meet the Founder <ArrowUpRight/></Link>
-        </Button>
-      </Slide>
+    {/* Health, Safety & Environment — brochure layout */}
+    <section className="ecmfs-hse">
+      {/* Hero image banner */}
+      <div className="ecmfs-hse__hero">
+        <div className="ecmfs-hse__top-label">Health, Safety &amp; Environment</div>
+        <div className="ecmfs-hse__title-bar">
+          <h2 className="ecmfs-hse__title">Corporate Responsibility — Health, Safety and Environment</h2>
+        </div>
+      </div>
+
+      {/* Teal content area */}
+      <div className="ecmfs-hse__content">
+        <div className="ecmfs-hse__content-inner">
+          <p>
+            We consider the protection and observance of HSE as a corporate
+            responsibility that guides our decision-making across all levels
+            of the organization.
+          </p>
+          <p>
+            Our employees carry out their work with full and proper regard
+            for their own health and safety and those of other persons who
+            may be affected by their activities.
+          </p>
+          <p>
+            We strive to responsibly manage and minimize the impact of our
+            business activities on the environment, and we do so by
+            implementing the concept of circular economy across all levels
+            of our operations.
+          </p>
+          <div className="ecmfs-hse__cta">
+            <Button variant="marine" asChild>
+              <Link to="/founder">Meet the Founder <ArrowUpRight /></Link>
+            </Button>
+          </div>
+        </div>
+      </div>
     </section>
   </>;
 }
@@ -90,101 +116,145 @@ export { BoatMaintenancePage } from './services/BoatMaintenance';
 export { YachtConstructionPage } from './services/YachtConstruction';
 
 
-export function FounderPage(){
+export function FounderPage() {
   return <>
-    <section className="section-navy founder-hero">
-      <div className="site-container two-column">
-        <Slide index={0}>
-          <div className="founder-portrait-wrap">
-            <img src={images.founder} alt="Mr. Okey Nwakwesi — Founder & MD/CEO" className="founder-portrait"/>
-          </div>
-        </Slide>
-        <Slide index={1}>
-          <p className="eyebrow"><Squares/>ECMFS Shipbuilding</p>
-          <h1>Mr. Okey Nwakwesi</h1>
-          <p className="founder-title">Founder & Managing Director / CEO</p>
-          <p className="large-copy">Mr. Okey Nwakwesi is the founding director of ECMFS. With almost two decades of work experience in the construction and maritime industries, he is now applying his marine and construction experience to shipbuilding and concrete flotation systems.</p>
-        </Slide>
-      </div>
-    </section>
+    {/* Brochure Founder Section */}
+    <section className="ecmfs-founder">
+      {/* Left grayscale visual */}
+      <div className="ecmfs-founder__visual">
+        <div className="ecmfs-founder__label">Founder</div>
 
-    {/* Career narrative from brochure slides 15-16 */}
-    <section className="site-container founder-bio-section">
-      <Slide>
-        <p className="eyebrow"><Squares/>Background</p>
-        <h2>About the Founder</h2>
-        <div className="body-copy founder-body">
-          <p>Armed with a wealth of experience in the marine and construction industries, which expanded his technical and management knowledge beyond the fields of chemical (process) engineering and building services engineering (both degrees awarded at Loughborough University in the United Kingdom) to mechanical/marine and civil engineering, Mr. Nwakwesi is now poised to apply that knowledge to take on the vast challenges within the fields of shipbuilding and concrete flotation systems building.</p>
-        </div>
-      </Slide>
-    </section>
-
-    {/* Career timeline */}
-    <section className="timeline-section">
-      <div className="site-container">
-        <Slide><h2>Career Timeline</h2></Slide>
-        <div className="timeline">
-          {[
-            {year:'2004', text:'Began his career as a Field Engineer with Fymak Marine & Oil Services Nig. Ltd.'},
-            {year:'2006', text:"Became Executive Director, Operations after negotiating a contract award from Chevron Nigeria Limited for the construction of two 170 ft x 31 ft Fast Support Intervention Vessels, and represented the company from keel laying through vessel launch at Horizon Shipbuilding Incorporated in Alabama, USA. His contributions to the design and build of the vessels were acknowledged by an inscription on the Built By Plaque, which recognised the owner's representative as a partner in the process."},
-            {year:'2009', text:'Became Managing Director and held the position for four years.'},
-            {year:'Next', text:'Stepped aside to explore a career within the construction industry, always intending to return to his passion for marine vessel construction.'},
-          ].map((t,i)=>(
-            <Slide className={`timeline-item ${i%2?'timeline-right':''}`} key={t.year} index={i}>
-              <p className="timeline-year">{t.year}</p>
-              <p>{t.text}</p>
-            </Slide>
-          ))}
+        <div className="ecmfs-founder__portrait">
+          <img
+            src={images.founder}
+            alt="Mr. Okechukwu Nwakwesi — Founder & MD/CEO"
+            loading="lazy"
+          />
         </div>
       </div>
-    </section>
 
-    {/* Education */}
-    <section className="site-container spotlight-section">
-      <Slide>
-        <p className="eyebrow"><Squares/>Academic Background</p>
-        <h2>Education</h2>
-        <p className="large-copy">Degrees in chemical (process) engineering and building services engineering, both awarded at Loughborough University, United Kingdom.</p>
-      </Slide>
-    </section>
+      {/* Right biography panel */}
+      <div className="ecmfs-founder__content">
+        <div className="ecmfs-founder__bio">
+          <p>
+            Okey Nwakwesi started his career as a Field Engineer in 2004
+            with Fymak Marine &amp; Oil Services Nig. Ltd. He became Executive
+            Director - Operations in 2006 after successfully negotiating
+            a contract award from Chevron Nigeria Limited for the
+            construction of two 170ft x 31ft Fast Support Intervention
+            Vessels. He went on to represent the company from commencement
+            (keel laying) of construction through to completion (Vessel
+            launch) at Horizon Shipbuilding Incorporated in Alabama, USA.
+          </p>
 
-    {/* Quote */}
-    <section className="section-navy angled-section quote-section">
-      <div className="site-container">
-        <Slide>
-          <blockquote>"It is with great enthusiasm that I look forward to making a mark in the marine asset construction industry in Nigeria, as it is clear that there remains a lot to be done to grow the industry, and I remain bullish about the future prospects."</blockquote>
-        </Slide>
+          <p>
+            The value of his contributions to the vessels design and build
+            was duly acknowledged as evidenced by an inscription on the
+            Built By Plaque, which recognised the Owner representative as
+            a partner in the process.
+          </p>
+
+          <p>
+            Mr Okey Nwakwesi eventually rose to the position of Managing
+            Director in 2009, a position he held for four years prior to
+            making the decision to step aside in order to explore a career
+            within the construction industry, but always with the intent
+            to return to his passion for marine vessel construction.
+          </p>
+
+          <p>
+            Armed with a wealth of experience in the marine and construction
+            industries, which expanded his technical and management
+            knowledge beyond the fields of process engineering and building
+            services engineering (both degrees awarded at Loughborough
+            University in the United Kingdom) to mechanical/marine and civil
+            engineering, he is now poised to apply that knowledge to take
+            on the vast challenges within the fields of shipbuilding and
+            concrete flotation systems building.
+          </p>
+
+          <p className="ecmfs-founder__quote">
+            "It is with great enthusiasm that I look forward to making a mark
+            in the marine asset construction industry in Nigeria, as it is
+            clear that there remains a lot to be done to grow the industry,
+            and I remain bullish about the future prospects".
+          </p>
+
+          <div className="ecmfs-founder__signature">
+            <span className="ecmfs-founder__name">
+              Mr. Okechukwu Nwakwesi
+            </span>
+
+            <span className="ecmfs-founder__role">
+              MD/CEO ECMFS Shipyard
+            </span>
+
+            {/* Decorative signature */}
+            <svg
+              className="ecmfs-founder__sign"
+              viewBox="0 0 140 40"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M8 25 C32 4, 66 8, 122 4
+                   C98 16, 65 21, 29 27
+                   C53 26, 85 21, 104 25
+                   L43 34 L74 35 L66 39"
+                stroke="currentColor"
+                stroke-width="2.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div className="ecmfs-founder__footer">
+        www.ecmfsboatsandfloats.com.ng
       </div>
     </section>
 
-    {/* Partners section with new logos */}
-    <section className="section-navy angled-section partnerships">
+    {/* Technical Partners Section with logos from public/img/partners */}
+    <section className="founder-partnerships-section">
       <div className="site-container">
         <Slide>
-          <p className="eyebrow"><Squares/>Technical Partners</p>
-          <h2>Shaping Possibilities.<br/>Together.</h2>
-          <blockquote>Our value proposition is underpinned by our strong partnerships with industry professionals in the fields of naval architecture, marine engineering, civil engineering, and concrete float system design and build.</blockquote>
-          <div className="partner-logos">
-            <img src={images.partnerIcarus} alt="Icarus partner logo" className="partner-logo"/>
-            <img src={images.partnerMirine} alt="Mirine partner logo" className="partner-logo"/>
-            <img src={images.partnerMf} alt="MF partner logo" className="partner-logo"/>
+          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+            <p className="eyebrow" style={{ color: '#ffca05' }}><Squares />Strategic Alliances</p>
+            <h2 style={{ color: '#fff', fontSize: '2rem', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              Technical Partners &amp; Affiliates
+            </h2>
+            <p style={{ color: '#c3d5ea', fontSize: '1.05rem', lineHeight: '1.7' }}>
+              Our value proposition is underpinned by robust international partnerships with leading naval architects, marine engineers, and global boat builders.
+            </p>
           </div>
-          <div className="partner-names">
-            <p>International Marine Flotation Systems Ltd (Vancouver, Canada)</p>
-            <p>Forepeak Design LLC</p>
+
+          <div className="partner-logos-grid">
+            <div className="partner-logo-card">
+              <img src={images.partnerIcarus} alt="Icarus Marine partner logo" />
+            </div>
+            <div className="partner-logo-card">
+              <img src={images.partnerMirine} alt="Mirine partner logo" />
+            </div>
+            <div className="partner-logo-card">
+              <img src={images.partnerMf} alt="International Marine Flotation Systems partner logo" />
+            </div>
           </div>
+
+
         </Slide>
       </div>
     </section>
   </>;
 }
 
-export function ResourcesPage(){
+export function ResourcesPage() {
   return <>
-    <PageHeading title="Resources" eyebrow="ECMFS Shipbuilding"/>
+    <PageHeading title="Resources" eyebrow="ECMFS Shipbuilding" />
     <section className="site-container resources-section">
       <Slide>
-        <p className="eyebrow"><Squares/>Downloads & Media</p>
+        <p className="eyebrow"><Squares />Downloads & Media</p>
         <h2>Company Resources</h2>
         <p className="large-copy">Download our company brochure and access key resources about ECMFS Shipbuilding's services, capabilities, and expertise.</p>
       </Slide>
@@ -192,13 +262,13 @@ export function ResourcesPage(){
       <div className="resources-grid">
         <Slide className="resource-card">
           <div className="resource-icon">
-            <Download size={32}/>
+            <Download size={32} />
           </div>
           <div className="resource-info">
             <h3>ECMFS Company Profile & Brochure</h3>
             <p>Our comprehensive company brochure covering all services, vessel construction capabilities, concrete float systems, and partnership details.</p>
             <a href="/downloads/ECMFS-brochure.pdf" target="_blank" rel="noopener noreferrer" className="resource-download-btn" download>
-              <Download size={16}/> Download Brochure (PDF)
+              <Download size={16} /> Download Brochure (PDF)
             </a>
           </div>
         </Slide>

@@ -56,10 +56,10 @@ export function HomePage() {
                     <Letters text="SHIPBUILDING" start={.45} />
                 </h1>
                 <p className="hero-headline">
-                    <Words text="ALUMINIUM & STEEL BOAT BUILDERS. CONCRETE FLOTATION SYSTEMS." start={1.25} />
+                    <Words text={`${company}, Lekki, Lagos.`} start={1.25} />
                 </p>
                 <p className="hero-subline">
-                    <Words text={`${company}, Lekki, Lagos.`} start={1.65} />
+                    <Words text="ALUMINIUM & STEEL BOAT BUILDERS. CONCRETE FLOTATION SYSTEMS." start={1.65} />
                 </p>
                 <motion.div
                     className="hero-actions"
