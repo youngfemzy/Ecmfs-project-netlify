@@ -1,13 +1,20 @@
 import { Link } from '@tanstack/react-router';
 import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export function YachtConstructionPage() {
   return (
     <section className="ecms-yacht-page">
       {/* Yellow title banner */}
-      <div className="ecms-yacht-page__heading">
+      <motion.div
+        className="ecms-yacht-page__heading"
+        initial={{ opacity: 0, y: -25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      >
         Yacht Construction and Brokering
-      </div>
+      </motion.div>
 
       <br />
       <br />
@@ -15,7 +22,13 @@ export function YachtConstructionPage() {
 
       <div className="ecms-yacht-page__layout">
         {/* LEFT: Descriptive content */}
-        <div className="ecms-yacht-page__text">
+        <motion.div
+          className="ecms-yacht-page__text"
+          initial={{ opacity: 0, x: -35 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
           <p>
             In the Lagos Metropolis, fun in the sun on the water has become a
             popular feature in the leisure activity mix. Short trips around the
@@ -42,27 +55,45 @@ export function YachtConstructionPage() {
             day management/maintenance.
           </p>
 
-          <div style={{ marginTop: '28px' }}>
+          <motion.div
+            style={{ marginTop: '28px' }}
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Link to="/contact" className="ecms-yacht-cta-btn">
               Consult Our Yacht Specialists <ArrowUpRight size={16} />
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* RIGHT: Yacht designs and layouts collage */}
         <div className="ecms-yacht-page__gallery">
           {/* Main deck layout (top-left) */}
-          <div className="ecms-yacht-page__panel">
+          <motion.div
+            className="ecms-yacht-page__panel"
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          >
             <img
               src="/img/yacht/mini_yacht_main_deck.png"
               alt="Mini yacht main deck layout"
               loading="lazy"
             />
             <div className="ecms-yacht-page__panel-label">Main Deck Layout</div>
-          </div>
+          </motion.div>
 
           {/* 42ft sports fisherman mini-yacht (top-right) */}
-          <div className="ecms-yacht-page__image ecms-yacht-page__image--caption">
+          <motion.div
+            className="ecms-yacht-page__image ecms-yacht-page__image--caption"
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
             <img
               src="/img/yacht/sports_fisherman_42ft.png"
               alt="42ft sports fisherman mini-yacht"
@@ -71,10 +102,16 @@ export function YachtConstructionPage() {
             <div className="ecms-yacht-page__caption">
               42ft Sports Fisherman Mini-Yacht
             </div>
-          </div>
+          </motion.div>
 
           {/* Express / 50ft sporting yacht (middle-left) */}
-          <div className="ecms-yacht-page__panel ecms-yacht-page__panel--express">
+          <motion.div
+            className="ecms-yacht-page__panel ecms-yacht-page__panel--express"
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div
               className="ecms-yacht-page__panel-label"
               style={{ color: '#073456', fontWeight: 800, letterSpacing: '0.5px' }}
@@ -93,10 +130,16 @@ export function YachtConstructionPage() {
               <span>Main Deck</span>
               <span>Below Deck</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Below deck layout (middle-right) */}
-          <div className="ecms-yacht-page__panel ecms-yacht-page__panel--below">
+          <motion.div
+            className="ecms-yacht-page__panel ecms-yacht-page__panel--below"
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="ecms-yacht-page__deck-buttons">
               <span>Main Deck</span>
               <span>Below Deck</span>
@@ -107,17 +150,23 @@ export function YachtConstructionPage() {
               loading="lazy"
             />
             <div className="ecms-yacht-page__panel-label">Below Deck Layout</div>
-          </div>
+          </motion.div>
 
           {/* Full-width bottom main deck layout */}
-          <div className="ecms-yacht-page__panel ecms-yacht-page__panel--wide">
+          <motion.div
+            className="ecms-yacht-page__panel ecms-yacht-page__panel--wide"
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="ecms-yacht-page__panel-label">Main Deck Layout</div>
             <img
               src="/img/yacht/main_deck_wide_plan.png"
               alt="Luxury yacht main deck plan"
               loading="lazy"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

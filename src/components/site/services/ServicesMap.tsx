@@ -1,18 +1,33 @@
 import { Link } from '@tanstack/react-router';
 import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-export function ServicesMapPage(){
+const MotionLink = motion(Link);
+
+export function ServicesMapPage() {
   return (
     <section className="ecms-service-map">
-      <div className="ecms-service-map__heading">OUR SERVICES</div>
+      <motion.div
+        className="ecms-service-map__heading"
+        initial={{ opacity: 0, y: -25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      >
+        OUR SERVICES
+      </motion.div>
 
       <div className="ecms-service-map__canvas">
         {/* Directional connectors with arrowheads */}
-        <svg
+        <motion.svg
           className="ecms-service-map__connectors"
           viewBox="0 0 1050 700"
           preserveAspectRatio="none"
           aria-hidden="true"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           {/* Center to top */}
           <line x1="525" y1="350" x2="525" y2="177" />
@@ -33,63 +48,89 @@ export function ServicesMapPage(){
           {/* Branch linking the two left-side services */}
           <path d="M270 350 H310 V473 H270" />
           <path className="arrow" d="M258 473 L273 465 L273 481 Z" />
-        </svg>
+        </motion.svg>
 
         {/* Top service: Concrete Floats */}
-        <Link
+        <MotionLink
           to="/services/concrete-floats"
           className="ecms-service-map__service ecms-service-map__service--top ecms-service-link"
+          initial={{ opacity: 0, y: -25, x: '-50%' }}
+          whileInView={{ opacity: 1, y: 0, x: '-50%' }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
           <span>Concrete Floats</span>
           <ArrowUpRight size={18} className="service-cta-arrow" />
-        </Link>
+        </MotionLink>
 
         {/* Left service 1: Under 85ft */}
-        <Link
+        <MotionLink
           to="/services/aluminium-steel"
           hash="under-85ft"
           className="ecms-service-map__service ecms-service-map__service--left-one ecms-service-link"
+          initial={{ opacity: 0, x: -35 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
         >
           <span>Aluminum and steel boat construction under 85ft</span>
           <ArrowUpRight size={18} className="service-cta-arrow" />
-        </Link>
+        </MotionLink>
 
         {/* Left service 2: Above 85ft */}
-        <Link
+        <MotionLink
           to="/services/aluminium-steel"
           hash="above-85ft"
           className="ecms-service-map__service ecms-service-map__service--left-two ecms-service-link"
+          initial={{ opacity: 0, x: -35 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
         >
           <span>Aluminium and steel boat construction above 85ft</span>
           <ArrowUpRight size={18} className="service-cta-arrow" />
-        </Link>
+        </MotionLink>
 
         {/* Center logo */}
-        <div className="ecms-service-map__center">
+        <motion.div
+          className="ecms-service-map__center"
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
           <img
             src="/img/mainlogo.png"
             alt="ECMFS Shipbuilding Logo"
             className="ecms-service-map__center-logo"
           />
-        </div>
+        </motion.div>
 
         {/* Right service: Boat maintenance and management */}
-        <Link
+        <MotionLink
           to="/services/boat-maintenance"
           className="ecms-service-map__service ecms-service-map__service--right ecms-service-link"
+          initial={{ opacity: 0, x: 35 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
         >
           <span>Boat maintenance and management</span>
           <ArrowUpRight size={18} className="service-cta-arrow" />
-        </Link>
+        </MotionLink>
 
         {/* Bottom service: Yacht construction and brokering */}
-        <Link
+        <MotionLink
           to="/services/yacht-construction"
           className="ecms-service-map__service ecms-service-map__service--bottom ecms-service-link"
+          initial={{ opacity: 0, y: 25, x: '-50%' }}
+          whileInView={{ opacity: 1, y: 0, x: '-50%' }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
         >
           <span>Yacht construction and brokering</span>
           <ArrowUpRight size={18} className="service-cta-arrow" />
-        </Link>
+        </MotionLink>
       </div>
     </section>
   );

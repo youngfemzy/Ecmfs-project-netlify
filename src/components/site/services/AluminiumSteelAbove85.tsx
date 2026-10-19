@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { images, vesselConstruction } from '../content';
 import { Slide, Squares, Photo } from '../Motion';
@@ -10,10 +11,15 @@ export function AluminiumSteelAbove85Page() {
     <div className="service-individual-page">
       <div className="service-page-hero" style={{ backgroundImage: `url(${images.hero})` }}>
         <div className="service-page-hero-overlay" />
-        <div className="site-container service-page-hero-content">
+        <motion.div
+          className="site-container service-page-hero-content"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        >
           <p className="eyebrow"><Squares />ECMFS Shipbuilding Services</p>
           <h1>Aluminium & Steel Boat Construction Above 85ft</h1>
-        </div>
+        </motion.div>
       </div>
 
       <section className="site-container service-detail-section">
