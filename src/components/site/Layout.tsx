@@ -63,9 +63,8 @@ export function SiteLayout({children}:{children:ReactNode}){
   return <MotionConfig reducedMotion="user"><div className="site-shell"><a href="#main" className="skip-link">Skip to content</a>
     <header className={`site-nav ${solid||open||loc.pathname!=='/'?'nav-solid':''}`}>
       <nav className="site-container nav-row" aria-label="Main navigation">
-        <Link to="/" className="brand">
-          <img src={images.logo} alt="ECMFS logo"/>
-          <span>ECMFS <small>SHIPBUILDING</small></span>
+        <Link to="/" className="brand" aria-label="ECMFS Shipbuilding">
+          <img src={images.logo} alt="ECMFS Shipbuilding logo"/>
         </Link>
         <div className="desktop-nav">
           {navLinks.map(([label, to]) =>
@@ -140,9 +139,8 @@ export function SiteLayout({children}:{children:ReactNode}){
     <footer className="site-footer">
       <div className="site-container">
         <div className="footer-top">
-          <Link to="/" className="brand">
-            <img src={images.logo} alt="ECMFS logo" loading="lazy"/>
-            <span>ECMFS <small>SHIPBUILDING</small></span>
+          <Link to="/" className="brand" aria-label="ECMFS Shipbuilding">
+            <img src={images.logo} alt="ECMFS Shipbuilding logo" loading="lazy"/>
           </Link>
           <nav aria-label="Footer navigation">
             {topLinks.map(([label, to])=><Link key={to} to={to}>{label}</Link>)}

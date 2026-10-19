@@ -12,8 +12,8 @@ export const images = {
   founder:   "/img/team/founder.jpg",
   // Floating home — concrete flotation systems context
   floats:    "/img/concrete-floats/floating-homes.jpg",
-  // Logo mark (same file used for favicon)
-  logo:      "/favicon.png",
+  // Logo mark (mainlogo.png)
+  logo:      "/img/mainlogo.png",
   // Partner logos
   partnerIcarus: "/img/partners/icarus.PNG",
   partnerMf:     "/img/partners/mf.PNG",
@@ -35,9 +35,10 @@ export const mission = "To deliver world class marine related infrastructure and
 export const vision = "To realize operational excellence in our field of expertise in order to be competitive in the global marketplace, and thereby secure a sizable market share within Nigeria and regional markets.";
 export const safety = "We treat the protection and observance of health, safety and environment as a corporate responsibility that guides decisions at all levels of the organisation. Our employees work with full regard for their own health and safety and that of others affected by their activities, and we manage and minimise our environmental impact by applying the circular economy concept across our operations.";
 
-// Brochure slide 7 — 4 distinct services
+// Brochure slide 7 — services diagram items
 export const servicesList = [
-  { label: "Aluminium & Steel Boat Construction", slug: "/services/aluminium-steel" },
+  { label: "Boat Construction (Under 85ft)", slug: "/services/aluminium-steel" },
+  { label: "Boat Construction (Above 85ft)", slug: "/services/aluminium-steel-above-85ft" },
   { label: "Concrete Floats", slug: "/services/concrete-floats" },
   { label: "Boat Maintenance & Management", slug: "/services/boat-maintenance" },
   { label: "Yacht Construction & Brokering", slug: "/services/yacht-construction" },

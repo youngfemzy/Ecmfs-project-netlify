@@ -1,4 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { ServicesPage } from '@/components/site/Corporate';
+import { ServicesMapPage } from '@/components/site/services/ServicesMap';
 import { pageHead } from '@/components/site/content';
-export const Route=createFileRoute('/services')({head:()=>pageHead('Marine Construction Services','Aluminium and steel boat construction, floating concrete foundations, boat maintenance and management, and yacht construction and brokering.'),component:ServicesPage});
+
+export const Route = createFileRoute('/services')({
+  head: () => pageHead(
+    'Marine Construction Services',
+    'ECMFS shipbuilding services: Aluminium & steel boat construction under and above 85ft, concrete floats, boat maintenance and management, and yacht construction and brokering.'
+  ),
+  component: ServicesMapPage,
+});
