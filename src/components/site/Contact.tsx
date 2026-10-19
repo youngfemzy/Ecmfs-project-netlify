@@ -1,10 +1,69 @@
-import { useState } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, MapPin, Phone, Mail, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { interests, quoteHref, validateQuote, type QuoteForm } from '@/lib/quote';
-import { whatsapp } from './content';
+import { whatsapp, images } from './content';
 import { PageHeading } from './Corporate';
 import { Slide, Squares } from './Motion';
-const empty:QuoteForm={name:'',organisation:'',phone:'',interest:interests[0],message:''};
-export function ContactPage(){const [form,setForm]=useState<QuoteForm>(empty);const [errors,setErrors]=useState<Partial<Record<keyof QuoteForm,string>>>({});const set=(key:keyof QuoteForm,value:string)=>{setForm(f=>({...f,[key]:value}));setErrors(e=>({...e,[key]:undefined}))};const href=quoteHref(form);
-return <div className="contact-page section-navy"><PageHeading title="Let's Build the Future Together" eyebrow="Contact"/><div className="site-container contact-columns"><Slide index={0}><p className="eyebrow"><Squares/>ECMFS Shipbuilding</p><dl className="contact-details"><div><dt>Corporate office</dt><dd>#2 Kingsley Odo Close, Lekki Phase One, Lagos, Nigeria</dd></div><div><dt>Jetty facility</dt><dd>#6 Wole Olateju Crescent, Lekki Phase One, Lagos, Nigeria</dd></div><div><dt>Warehousing facility office</dt><dd>km37 Lekki Epe Expressway, Awoyaya, Lagos, Nigeria</dd></div><div><dt>Phones</dt><dd><a href={whatsapp} target="_blank" rel="noopener noreferrer">0803 845 7735 (WhatsApp)</a><a href="tel:+2348173396938">+234 817 339 6938</a><a href="tel:+2348188255176">0818 825 5176</a><a href="tel:+23412802067">+234 1 280 2067</a></dd></div><div><dt>Emails</dt><dd><a href="mailto:sales@ecmfsboatsandfloats.com.ng">sales@ecmfsboatsandfloats.com.ng</a><a href="mailto:tech@ecmfsboatsandfloats.com.ng">tech@ecmfsboatsandfloats.com.ng</a></dd></div></dl></Slide><Slide index={1} className="quote-form"><h2>Request a Quote</h2><form onSubmit={e=>e.preventDefault()} noValidate>{(['name','organisation','phone'] as const).map(key=><label key={key}><span>{key==='name'?'Name *':key==='phone'?'Phone':'Organisation'}</span><input name={key} autoComplete={key==='name'?'name':key==='phone'?'tel':'organization'} type={key==='phone'?'tel':'text'} value={form[key]} onChange={e=>set(key,e.target.value)} aria-invalid={!!errors[key]} aria-describedby={errors[key]?`${key}-error`:undefined}/>{errors[key]&&<span className="form-error" id={`${key}-error`}>{errors[key]}</span>}</label>)}<label><span>Interest</span><select name="interest" value={form.interest} onChange={e=>set('interest',e.target.value)}>{interests.map(i=><option key={i}>{i}</option>)}</select></label><label><span>Message *</span><textarea name="message" rows={5} value={form.message} onChange={e=>set('message',e.target.value)} aria-invalid={!!errors.message} aria-describedby={errors.message?'message-error':undefined}/>{errors.message&&<span className="form-error" id="message-error">{errors.message}</span>}</label><Button variant="marine" asChild><a href={href} target="_blank" rel="noopener noreferrer" onClick={e=>{const result=validateQuote(form);setErrors(result);if(Object.keys(result).length){e.preventDefault();const first=result.name?'name':'message';document.querySelector<HTMLElement>(`[name="${first}"]`)?.focus()}}}>Send Request <ArrowUpRight/></a></Button><p className="form-note">Submitting opens WhatsApp with your message ready to send.</p></form></Slide></div></div>}
+
+export function ContactPage(){
+  return (
+    <div className="contact-page">
+      {/* Hero — matches brochure final slide: building photo with contact overlay */}
+      <div className="contact-hero">
+        <img src={images.hero} alt="ECMFS corporate facility — concrete float construction site" className="contact-hero-img"/>
+        <div className="contact-hero-overlay"/>
+        <div className="contact-hero-brand">
+          <img src={images.logo} alt="ECMFS Shipbuilding logo" className="contact-logo-large"/>
+        </div>
+      </div>
+
+      {/* Contact details matching brochure layout */}
+      <div className="contact-details-band section-navy">
+        <div className="site-container contact-columns">
+          <Slide index={0} className="contact-block">
+            <div className="contact-icon-row"><Building2 size={20}/><dt>Corporate Office</dt></div>
+            <dd>#2 Kingsley Odo Close, Lekki Phase One, Lagos, Nigeria.</dd>
+          </Slide>
+          <Slide index={1} className="contact-block">
+            <div className="contact-icon-row"><MapPin size={20}/><dt>Jetty Location</dt></div>
+            <dd>The Leisure Park, #6 Wole Olateju Crescent, off Admiralty way,<br/>Lekki Phase One, Lagos, Nigeria.</dd>
+          </Slide>
+          <Slide index={2} className="contact-block">
+            <div className="contact-icon-row"><Phone size={20}/><dt>Phones</dt></div>
+            <dd>
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer">(+234)-803 845 7735 (WhatsApp)</a>
+              <a href="tel:+2348188255176">0818 825 5176</a>
+              <a href="tel:+23412802067">1-280 2067</a>
+            </dd>
+          </Slide>
+          <Slide index={3} className="contact-block">
+            <div className="contact-icon-row"><Mail size={20}/><dt>Email</dt></div>
+            <dd>
+              <a href="mailto:sales@ecmfsboatsandfloats.com.ng">sales@ecmfsboatsandfloats.com.ng</a>
+            </dd>
+          </Slide>
+        </div>
+      </div>
+
+      {/* Get In Touch CTA section */}
+      <section className="site-container contact-cta-section">
+        <Slide>
+          <p className="eyebrow"><Squares/>ECMFS Shipbuilding</p>
+          <h2>Get In Touch</h2>
+          <p className="large-copy">Ready to discuss your marine construction project? Our team is available to assist with aluminium & steel boat construction, concrete flotation systems, boat maintenance, and yacht requirements. Reach us directly via WhatsApp or email.</p>
+          <div className="contact-actions">
+            <Button variant="marine" asChild>
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+                Chat on WhatsApp <ArrowUpRight/>
+              </a>
+            </Button>
+            <Button variant="marineOutline" asChild>
+              <a href="mailto:sales@ecmfsboatsandfloats.com.ng">
+                Send an Email <ArrowUpRight/>
+              </a>
+            </Button>
+          </div>
+        </Slide>
+      </section>
+    </div>
+  );
+}

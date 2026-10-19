@@ -16,7 +16,13 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as VesselRouteImport } from './routes/vessel'
+import { Route as FounderRouteImport } from './routes/founder'
+import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as TeamSlugRouteImport } from './routes/team_.$slug'
+import { Route as ServicesAluminiumSteelRouteImport } from './routes/services.aluminium-steel'
+import { Route as ServicesConcreteFloatsRouteImport } from './routes/services.concrete-floats'
+import { Route as ServicesBoatMaintenanceRouteImport } from './routes/services.boat-maintenance'
+import { Route as ServicesYachtConstructionRouteImport } from './routes/services.yacht-construction'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -53,9 +59,39 @@ const VesselRoute = VesselRouteImport.update({
   path: '/vessel',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FounderRoute = FounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamSlugRoute = TeamSlugRouteImport.update({
   id: '/team_/$slug',
   path: '/team/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesAluminiumSteelRoute = ServicesAluminiumSteelRouteImport.update({
+  id: '/services/aluminium-steel',
+  path: '/services/aluminium-steel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesConcreteFloatsRoute = ServicesConcreteFloatsRouteImport.update({
+  id: '/services/concrete-floats',
+  path: '/services/concrete-floats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesBoatMaintenanceRoute = ServicesBoatMaintenanceRouteImport.update({
+  id: '/services/boat-maintenance',
+  path: '/services/boat-maintenance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesYachtConstructionRoute = ServicesYachtConstructionRouteImport.update({
+  id: '/services/yacht-construction',
+  path: '/services/yacht-construction',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -67,7 +103,13 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/team': typeof TeamRoute
   '/vessel': typeof VesselRoute
+  '/founder': typeof FounderRoute
+  '/resources': typeof ResourcesRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/services/aluminium-steel': typeof ServicesAluminiumSteelRoute
+  '/services/concrete-floats': typeof ServicesConcreteFloatsRoute
+  '/services/boat-maintenance': typeof ServicesBoatMaintenanceRoute
+  '/services/yacht-construction': typeof ServicesYachtConstructionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -77,7 +119,13 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/team': typeof TeamRoute
   '/vessel': typeof VesselRoute
+  '/founder': typeof FounderRoute
+  '/resources': typeof ResourcesRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/services/aluminium-steel': typeof ServicesAluminiumSteelRoute
+  '/services/concrete-floats': typeof ServicesConcreteFloatsRoute
+  '/services/boat-maintenance': typeof ServicesBoatMaintenanceRoute
+  '/services/yacht-construction': typeof ServicesYachtConstructionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -88,7 +136,13 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/team': typeof TeamRoute
   '/vessel': typeof VesselRoute
+  '/founder': typeof FounderRoute
+  '/resources': typeof ResourcesRoute
   '/team_/$slug': typeof TeamSlugRoute
+  '/services/aluminium-steel': typeof ServicesAluminiumSteelRoute
+  '/services/concrete-floats': typeof ServicesConcreteFloatsRoute
+  '/services/boat-maintenance': typeof ServicesBoatMaintenanceRoute
+  '/services/yacht-construction': typeof ServicesYachtConstructionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -100,7 +154,13 @@ export interface FileRouteTypes {
     | '/services'
     | '/team'
     | '/vessel'
+    | '/founder'
+    | '/resources'
     | '/team/$slug'
+    | '/services/aluminium-steel'
+    | '/services/concrete-floats'
+    | '/services/boat-maintenance'
+    | '/services/yacht-construction'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -110,7 +170,13 @@ export interface FileRouteTypes {
     | '/services'
     | '/team'
     | '/vessel'
+    | '/founder'
+    | '/resources'
     | '/team/$slug'
+    | '/services/aluminium-steel'
+    | '/services/concrete-floats'
+    | '/services/boat-maintenance'
+    | '/services/yacht-construction'
   id:
     | '__root__'
     | '/'
@@ -120,7 +186,13 @@ export interface FileRouteTypes {
     | '/services'
     | '/team'
     | '/vessel'
+    | '/founder'
+    | '/resources'
     | '/team_/$slug'
+    | '/services/aluminium-steel'
+    | '/services/concrete-floats'
+    | '/services/boat-maintenance'
+    | '/services/yacht-construction'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -131,7 +203,13 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   TeamRoute: typeof TeamRoute
   VesselRoute: typeof VesselRoute
+  FounderRoute: typeof FounderRoute
+  ResourcesRoute: typeof ResourcesRoute
   TeamSlugRoute: typeof TeamSlugRoute
+  ServicesAluminiumSteelRoute: typeof ServicesAluminiumSteelRoute
+  ServicesConcreteFloatsRoute: typeof ServicesConcreteFloatsRoute
+  ServicesBoatMaintenanceRoute: typeof ServicesBoatMaintenanceRoute
+  ServicesYachtConstructionRoute: typeof ServicesYachtConstructionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -185,11 +263,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VesselRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/founder': {
+      id: '/founder'
+      path: '/founder'
+      fullPath: '/founder'
+      preLoaderRoute: typeof FounderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/team_/$slug': {
       id: '/team_/$slug'
       path: '/team/$slug'
       fullPath: '/team/$slug'
       preLoaderRoute: typeof TeamSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/aluminium-steel': {
+      id: '/services/aluminium-steel'
+      path: '/services/aluminium-steel'
+      fullPath: '/services/aluminium-steel'
+      preLoaderRoute: typeof ServicesAluminiumSteelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/concrete-floats': {
+      id: '/services/concrete-floats'
+      path: '/services/concrete-floats'
+      fullPath: '/services/concrete-floats'
+      preLoaderRoute: typeof ServicesConcreteFloatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/boat-maintenance': {
+      id: '/services/boat-maintenance'
+      path: '/services/boat-maintenance'
+      fullPath: '/services/boat-maintenance'
+      preLoaderRoute: typeof ServicesBoatMaintenanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/yacht-construction': {
+      id: '/services/yacht-construction'
+      path: '/services/yacht-construction'
+      fullPath: '/services/yacht-construction'
+      preLoaderRoute: typeof ServicesYachtConstructionRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -203,7 +323,13 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   TeamRoute: TeamRoute,
   VesselRoute: VesselRoute,
+  FounderRoute: FounderRoute,
+  ResourcesRoute: ResourcesRoute,
   TeamSlugRoute: TeamSlugRoute,
+  ServicesAluminiumSteelRoute: ServicesAluminiumSteelRoute,
+  ServicesConcreteFloatsRoute: ServicesConcreteFloatsRoute,
+  ServicesBoatMaintenanceRoute: ServicesBoatMaintenanceRoute,
+  ServicesYachtConstructionRoute: ServicesYachtConstructionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

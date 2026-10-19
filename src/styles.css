@@ -297,3 +297,157 @@
 .not-found { min-height: 65vh; display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
 .not-found h1 { font-size: clamp(6rem, 20vw, 12rem); color: var(--navy); }
 .not-found h2 { font-size: 2rem; }
+
+/* ──── Nav Dropdown ──── */
+.nav-dropdown-wrapper { position: relative; }
+.nav-dropdown-trigger {
+  display: flex; align-items: center; gap: 0.35rem;
+  font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em;
+  color: color-mix(in oklab, var(--on-navy) 85%, transparent);
+  background: none; border: none; cursor: pointer; padding: 0;
+  transition: color 0.2s;
+}
+.nav-dropdown-trigger:hover, .nav-dropdown-trigger.active { color: var(--peri); }
+.dropdown-chevron { width: 0.85rem; height: 0.85rem; transition: transform 0.25s var(--ease); }
+.dropdown-chevron.open { transform: rotate(180deg); }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 0.75rem); left: 50%; transform: translateX(-50%);
+  min-width: 18rem; background: var(--navy); border: 1px solid color-mix(in oklab, var(--peri) 20%, transparent);
+  padding: 0.5rem 0; z-index: 70; box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+.nav-dropdown a { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.65rem 1.25rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: color-mix(in oklab, var(--on-navy) 80%, transparent); transition: background 0.15s, color 0.15s; }
+.nav-dropdown a:hover { background: color-mix(in oklab, var(--royal) 20%, transparent); color: var(--peri); }
+.dropdown-overview { border-bottom: 1px solid color-mix(in oklab, var(--peri) 20%, transparent); margin-bottom: 0.25rem; color: var(--peri) !important; font-size: 0.7rem !important; }
+.mobile-sub-links { display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1.5rem; margin-top: 0.5rem; }
+.mobile-sub-link { font-family: var(--font-sans) !important; font-size: 1.1rem !important; color: color-mix(in oklab, var(--peri) 85%, transparent) !important; }
+
+/* ──── Services Hub ──── */
+.services-hub { position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden; background: var(--navy); }
+.services-hub-bg { position: absolute; inset: 0; }
+.services-hub-image { width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
+.services-hub-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, color-mix(in oklab, var(--navy) 70%, transparent), var(--navy) 90%); }
+.services-hub-content { position: relative; z-index: 2; padding-block: 8rem 5rem; }
+.services-hub-header { text-align: center; margin-bottom: 4rem; }
+.services-hub-header h1 { font-size: clamp(3rem, 10vw, 7rem); color: var(--on-navy); }
+.services-hub-diagram { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; max-width: 60rem; margin: 0 auto; }
+@media (min-width: 768px) { .services-hub-diagram { grid-template-columns: 1fr auto 1fr; align-items: center; gap: 0; } }
+.hub-center { display: none; }
+@media (min-width: 768px) {
+  .hub-center { display: flex; align-items: center; justify-content: center; width: 9rem; height: 9rem; border-radius: 9999px; background: var(--navy); border: 3px solid color-mix(in oklab, var(--peri) 40%, transparent); }
+  .hub-center img { width: 6rem; height: 6rem; border-radius: 9999px; object-fit: contain; }
+  .services-hub-diagram { grid-template-columns: 1fr 9rem 1fr; }
+}
+.hub-card { background: color-mix(in oklab, #fff 12%, transparent); backdrop-filter: blur(6px); border: 1px solid color-mix(in oklab, #fff 20%, transparent); }
+.hub-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.5rem; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; text-transform: uppercase; color: var(--on-navy); transition: background 0.25s var(--ease); }
+.hub-link:hover { background: color-mix(in oklab, var(--royal) 35%, transparent); color: var(--peri); }
+.hub-link svg { flex-shrink: 0; color: var(--flame); }
+
+/* ──── Service Individual Pages ──── */
+.service-page-hero { position: relative; min-height: 55vh; display: flex; align-items: flex-end; background-size: cover; background-position: center; }
+.service-page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, var(--navy) 20%, color-mix(in oklab, var(--navy) 55%, transparent)); }
+.service-page-hero-content { position: relative; z-index: 2; padding-block: 6rem 3rem; }
+.service-page-hero-content h1 { font-size: clamp(2.5rem, 8vw, 5.5rem); color: var(--on-navy); }
+.service-detail-section { padding-block: 4.5rem; }
+.service-body { max-width: 65rem; }
+
+/* Aluminium gallery grid */
+.aluminium-gallery { padding-block: calc(3.5vw + 3rem) 5rem; }
+.vessel-reference-grid { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+@media (min-width: 768px) { .vessel-reference-grid { grid-template-columns: repeat(3, 1fr); } }
+.vessel-ref-card { position: relative; overflow: hidden; }
+.vessel-ref-card img { display: block; width: 100%; height: 14rem; object-fit: cover; transition: transform 0.5s var(--ease); }
+.vessel-ref-card:hover img { transform: scale(1.05); }
+.vessel-ref-label { position: absolute; inset-inline: 0; bottom: 0; background: color-mix(in oklab, var(--navy) 80%, transparent); color: var(--on-navy); padding: 0.5rem 0.85rem; font-family: var(--font-display); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Concrete floats page */
+.concrete-hero { background-image: url('/img/concrete-floats/floating-homes.jpg'); }
+.concrete-description-section { padding-block: calc(3.5vw + 3rem) 5rem; }
+.section-title-blue { color: #00bfff; font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 1.5rem; }
+.concrete-gallery-section { padding-block: 4.5rem; }
+.concrete-grid { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+@media (min-width: 768px) { .concrete-grid { grid-template-columns: repeat(3, 1fr); } }
+.concrete-card { position: relative; overflow: hidden; }
+.concrete-card img { display: block; width: 100%; height: 15rem; object-fit: cover; transition: transform 0.5s var(--ease); }
+.concrete-card:hover img { transform: scale(1.05); }
+.concrete-label { position: absolute; inset-inline: 0; bottom: 0; background: color-mix(in oklab, var(--navy) 80%, transparent); color: var(--on-navy); padding: 0.5rem 0.85rem; font-family: var(--font-display); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Maintenance page */
+.maintenance-hero { background-image: url('/img/vessel/kena-water.jpg'); background-color: #0a1f3a; }
+.section-teal { background: #0a2a30; color: var(--on-navy); }
+.maintenance-content-section { padding-block: calc(3.5vw + 3rem) 5rem; }
+.eyebrow-yellow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.28em; color: #FFD700; }
+.section-teal .body-copy, .section-teal .large-copy { color: color-mix(in oklab, var(--on-navy) 85%, transparent); }
+.section-teal h2, .section-teal h3 { color: var(--on-navy); }
+
+/* Yacht page */
+.yacht-hero { background-image: url('/img/vessel/kena-photo.jpg'); }
+.yacht-content-section { padding-block: 4.5rem; }
+.yacht-image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.yacht-image-grid img { width: 100%; height: 11rem; object-fit: cover; }
+
+/* ──── Vessel Construction section in About ──── */
+.vessel-construction-section { padding-block: calc(3.5vw + 4rem) 5rem; }
+
+/* ──── Mission & Vision – Crimson section ──── */
+.section-crimson { background: #1a0505; color: var(--on-navy); }
+.section-crimson .eyebrow { color: #e8a0a0; }
+.section-crimson h2, .section-crimson h1 { color: var(--on-navy); }
+.section-crimson .large-copy { color: color-mix(in oklab, var(--on-navy) 85%, transparent); }
+.section-crimson .square-motif::before { background: #c0392b; }
+.section-crimson .square-motif::after { background: #e74c3c; }
+
+/* ──── Founder Page ──── */
+.founder-hero { padding-top: 9rem; padding-bottom: 4rem; }
+.founder-portrait-wrap { display: flex; justify-content: center; }
+.founder-portrait { width: 100%; max-width: 22rem; height: auto; display: block; clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%); }
+.founder-title { margin-top: 0.5rem; font-size: 1.15rem; color: var(--peri); font-weight: 600; text-transform: none; font-family: var(--font-sans); }
+.founder-bio-section { padding-block: 4.5rem; max-width: 65rem; }
+.founder-body { max-width: 58rem; }
+
+/* Partner logos */
+.partner-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-top: 2rem; }
+.partner-logo { height: 3.5rem; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; transition: opacity 0.2s; }
+.partner-logo:hover { opacity: 1; }
+
+/* ──── Resources Page ──── */
+.resources-section { padding-block: 3rem 6rem; }
+.resources-grid { margin-top: 3.5rem; display: grid; gap: 2rem; }
+@media (min-width: 768px) { .resources-grid { grid-template-columns: repeat(2, 1fr); } }
+.resource-card { display: flex; flex-direction: column; gap: 1.5rem; border: 1px solid var(--border); background: var(--card); padding: 2rem; transition: box-shadow 0.2s var(--ease), transform 0.2s var(--ease); }
+.resource-card:hover { box-shadow: 0 8px 30px rgba(8,26,75,0.12); transform: translateY(-3px); }
+.resource-icon { display: grid; place-items: center; width: 4rem; height: 4rem; border-radius: 50%; background: var(--mist); color: var(--royal); }
+.resource-info { display: flex; flex-direction: column; gap: 0.75rem; }
+.resource-info h3 { font-size: 1.25rem; color: var(--navy); text-transform: none; font-family: var(--font-sans); font-weight: 700; }
+.resource-info p { font-size: 0.95rem; line-height: 1.6; color: var(--muted-foreground); }
+.resource-download-btn { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; padding: 0.65rem 1.25rem; background: var(--royal); color: #fff; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; transition: background 0.2s var(--ease); width: fit-content; }
+.resource-download-btn:hover { background: var(--navy); }
+
+/* ──── Contact Page Redesign ──── */
+.contact-page { padding-top: 0; }
+.contact-hero { position: relative; height: 65vh; min-height: 24rem; overflow: hidden; background: var(--navy); }
+.contact-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+.contact-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, color-mix(in oklab, var(--navy) 30%, transparent), var(--navy) 85%); }
+.contact-hero-brand { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-start; padding-inline: 1.25rem; padding-top: 6rem; max-width: 80rem; margin: 0 auto; }
+.contact-logo-large { width: 9rem; height: 9rem; border-radius: 9999px; border: 3px solid color-mix(in oklab, var(--peri) 40%, transparent); object-fit: contain; background: color-mix(in oklab, var(--navy) 60%, transparent); }
+.contact-details-band { padding-block: 3rem 4rem; }
+.contact-columns { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media (min-width: 640px) { .contact-columns { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .contact-columns { grid-template-columns: repeat(4, 1fr); } }
+.contact-block { display: flex; flex-direction: column; gap: 0.5rem; }
+.contact-icon-row { display: flex; align-items: center; gap: 0.6rem; color: var(--peri); margin-bottom: 0.35rem; }
+.contact-icon-row dt { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--peri); }
+.contact-block dd { color: color-mix(in oklab, var(--on-navy) 85%, transparent); font-size: 0.9rem; line-height: 1.7; }
+.contact-block dd a { display: block; color: color-mix(in oklab, var(--on-navy) 80%, transparent); }
+.contact-block dd a:hover { color: var(--peri); }
+.contact-cta-section { padding-block: 5rem 6rem; max-width: 55rem; }
+.contact-actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* marineOutline button variant */
+.btn-marine-outline {
+  border: 2px solid var(--royal); color: var(--royal); background: transparent;
+  padding: 0.65rem 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-marine-outline:hover { background: var(--royal); color: #fff; }
+
