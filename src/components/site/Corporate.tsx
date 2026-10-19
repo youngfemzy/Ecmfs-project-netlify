@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { ArrowUpRight, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { about, mission, vision, safety, services, images, vesselConstruction } from './content';
 import { Slide, Photo, Squares } from './Motion';
@@ -42,11 +43,23 @@ export function AboutPage() {
     {/* Unified Mission & Vision Section */}
     <section className="mission-vision-section">
       <div className="mv-angle" />
-      <div className="mv-banner">
+      <motion.div
+        className="mv-banner"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      >
         OUR VISION &amp; MISSION
-      </div>
+      </motion.div>
       <div className="mv-content">
-        <div className="mv-panel">
+        <motion.div
+          className="mv-panel"
+          initial={{ opacity: 0, x: -45 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2>Our Mission</h2>
           <p>
             To deliver world class marine-related infrastructure and
@@ -54,8 +67,14 @@ export function AboutPage() {
             local labor force as well as a local vendor supply
             network to meet a wide range of client needs.
           </p>
-        </div>
-        <div className="mv-panel">
+        </motion.div>
+        <motion.div
+          className="mv-panel"
+          initial={{ opacity: 0, x: -45 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2>Our Vision</h2>
           <p>
             To realize operational excellence in our field of expertise
@@ -63,7 +82,7 @@ export function AboutPage() {
             thereby secure a sizeable market share within Nigeria and
             regional market.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
 
@@ -71,36 +90,71 @@ export function AboutPage() {
     <section className="ecmfs-hse">
       {/* Hero image banner */}
       <div className="ecmfs-hse__hero">
-        <div className="ecmfs-hse__top-label">Health, Safety &amp; Environment</div>
-        <div className="ecmfs-hse__title-bar">
+        <motion.div
+          className="ecmfs-hse__top-label"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Health, Safety &amp; Environment
+        </motion.div>
+        <motion.div
+          className="ecmfs-hse__title-bar"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2 className="ecmfs-hse__title">Corporate Responsibility — Health, Safety and Environment</h2>
-        </div>
+        </motion.div>
       </div>
 
       {/* Teal content area */}
       <div className="ecmfs-hse__content">
         <div className="ecmfs-hse__content-inner">
-          <p>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          >
             We consider the protection and observance of HSE as a corporate
             responsibility that guides our decision-making across all levels
             of the organization.
-          </p>
-          <p>
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
             Our employees carry out their work with full and proper regard
             for their own health and safety and those of other persons who
             may be affected by their activities.
-          </p>
-          <p>
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
             We strive to responsibly manage and minimize the impact of our
             business activities on the environment, and we do so by
             implementing the concept of circular economy across all levels
             of our operations.
-          </p>
-          <div className="ecmfs-hse__cta">
+          </motion.p>
+          <motion.div
+            className="ecmfs-hse__cta"
+            initial={{ opacity: 0, scale: 0.94, y: 18 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Button variant="marine" asChild>
               <Link to="/founder">Meet the Founder <ArrowUpRight /></Link>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -209,10 +263,6 @@ export function FounderPage() {
             </svg>
           </div>
         </div>
-      </div>
-
-      <div className="ecmfs-founder__footer">
-        www.ecmfsboatsandfloats.com.ng
       </div>
     </section>
 
