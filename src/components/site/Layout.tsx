@@ -191,6 +191,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <motion.main
             key={loc.pathname}
             id="main"
+            className={`site-main${loc.pathname === '/' ? ' site-main--home' : ''}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.26, ease: 'easeOut' } }}
             exit={{ opacity: 0, transition: { duration: 0.15, ease: 'easeIn' } }}
@@ -206,7 +207,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <Link to="/" className="brand" aria-label="ECMFS Shipbuilding">
                 <img src={images.logo} alt="ECMFS Shipbuilding logo" loading="lazy" />
               </Link>
-              <nav aria-label="Footer navigation">
+              <nav className='footer-nav-menu' aria-label="Footer navigation">
                 {topLinks.map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}
               </nav>
             </div>

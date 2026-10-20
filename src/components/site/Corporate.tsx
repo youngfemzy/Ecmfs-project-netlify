@@ -282,7 +282,7 @@ export function FounderPage() {
       <div className="site-container">
         <Slide>
           <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-            <p className="eyebrow" style={{ color: '#ffca05' }}><Squares />Strategic Alliances</p>
+            <p className="eyebrow" style={{ color: '#ffca05', justifyContent: 'center' }}><Squares />Strategic Alliances</p>
             <h2 style={{ color: '#fff', fontSize: '2rem', textTransform: 'uppercase', marginBottom: '1rem' }}>
               Technical Partners
             </h2>
