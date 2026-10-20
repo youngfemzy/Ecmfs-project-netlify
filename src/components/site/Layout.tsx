@@ -125,9 +125,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.18 }}
                         >
-                          <Link to="/services" className="dropdown-overview" onClick={() => setServicesOpen(false)}>
-                            All Services <ArrowUpRight size={14} />
-                          </Link>
                           {servicesList.map(s => (
                             <Link key={s.slug} to={s.slug as any} className="dropdown-item" onClick={() => setServicesOpen(false)}>
                               {s.label}
@@ -168,7 +165,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <Button variant="marineIcon" size="icon" className="menu-close" aria-label="Close menu" onClick={() => setOpen(false)}><X /></Button>
               {topLinks.map(([label, to], i) => (
                 <motion.div key={to} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }}>
-                  <Link to={to} onClick={() => setOpen(false)}>{label}</Link>
+                  {to === '/services'
+                    ? <span className="mobile-menu-label">{label}</span>
+                    : <Link to={to} onClick={() => setOpen(false)}>{label}</Link>}
                   {to === '/services' && (
                     <div className="mobile-sub-links">
                       {servicesList.map(s => (

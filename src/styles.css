@@ -277,6 +277,17 @@
   line-height: 1.05;
 }
 
+/* Non-navigating heading (e.g. "Services" above its sub-links) */
+.mobile-menu-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: var(--on-navy);
+  line-height: 1.05;
+}
+
 .menu-close {
   position: absolute;
   top: 1.25rem;
@@ -482,7 +493,15 @@ section.angled-section.section-navy {
 .clean-photo {
   display: block;
   width: 100%;
-  height: auto;
+  height: 750px;
+}
+
+@media screen and (max-width: 600px) {
+
+
+  .clean-photo {
+    height: 450px;
+  }
 }
 
 /* Portrait shots are small; cap width so they don't stretch */
@@ -634,6 +653,7 @@ section.angled-section.section-navy {
   .hero-tiles {
     grid-template-columns: repeat(4, 1fr);
   }
+
 }
 
 .hero-tile {
@@ -1338,13 +1358,6 @@ section.angled-section.section-navy {
   color: var(--peri);
 }
 
-.dropdown-overview {
-  border-bottom: 1px solid color-mix(in oklab, var(--peri) 20%, transparent);
-  margin-bottom: 0.25rem;
-  color: var(--peri) !important;
-  font-size: 0.7rem !important;
-}
-
 .mobile-sub-links {
   display: flex;
   flex-direction: column;
@@ -1359,272 +1372,6 @@ section.angled-section.section-navy {
   color: color-mix(in oklab, var(--peri) 85%, transparent) !important;
 }
 
-/* ──── ECMFS Service Map Diagram ("All Services" Page) ──── */
-.ecms-service-map {
-  position: relative;
-  min-height: 820px;
-  overflow: hidden;
-  background-attachment: fixed !important;
-  background:
-    linear-gradient(rgba(7, 7, 17, .76), rgba(7, 7, 17, .82)),
-    url("https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1920&q=85") center / cover no-repeat;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #444;
-  box-sizing: border-box;
-}
-
-.ecms-service-map *,
-.ecms-service-map *::before,
-.ecms-service-map *::after {
-  box-sizing: border-box;
-}
-
-.ecms-service-map__heading {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 5;
-  width: 36%;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #292944;
-  color: #fff;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  font-family: var(--font-display), Arial, sans-serif;
-}
-
-.ecms-service-map__heading::before {
-  content: "";
-  position: absolute;
-  right: 100%;
-  top: 0;
-  border-top: 50px solid #292944;
-  border-left: 50px solid transparent;
-}
-
-/* Main diagram canvas */
-.ecms-service-map__canvas {
-  position: relative;
-  width: min(100%, 1050px);
-  height: 700px;
-  margin: 0 auto;
-  top: 50px;
-}
-
-/* All connectors sit behind the logo and service boxes */
-.ecms-service-map__connectors {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.ecms-service-map__connectors line,
-.ecms-service-map__connectors path {
-  fill: none;
-  stroke: #d0d0d0;
-  stroke-width: 2.5;
-  stroke-linecap: square;
-  stroke-linejoin: miter;
-}
-
-.ecms-service-map__connectors .arrow {
-  fill: #d0d0d0;
-  stroke: none;
-}
-
-/* Central logo */
-.ecms-service-map__center {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
-}
-
-.ecms-service-map__center-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Service boxes with CTA links */
-.ecms-service-map__service {
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-  background: #d0d1d2;
-  border: 3px solid #fff;
-  color: #454545;
-  padding: 16px 22px;
-  font-size: 21px;
-  font-weight: 600;
-  line-height: 1.2;
-  min-height: 82px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.25s var(--ease), background 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease), box-shadow 0.25s var(--ease);
-}
-
-.ecms-service-map__service:hover {
-  background: #ffffff;
-  color: #081a4b;
-  border-color: #1f4fc1;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
-  z-index: 10;
-}
-
-.service-cta-arrow {
-  flex-shrink: 0;
-  color: #1f4fc1;
-  transition: transform 0.2s var(--ease);
-}
-
-.ecms-service-map__service:hover .service-cta-arrow {
-  transform: translate(3px, -3px);
-}
-
-.ecms-service-map__service--top {
-  top: 125px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 275px;
-  justify-content: center;
-  text-align: center;
-}
-
-.ecms-service-map__service--top:hover {
-  transform: translateX(-50%) translateY(-4px);
-}
-
-.ecms-service-map__service--left-one {
-  left: 0;
-  top: 325px;
-  width: 280px;
-  min-height: 103px;
-}
-
-.ecms-service-map__service--left-one:hover {
-  transform: translateX(4px);
-}
-
-.ecms-service-map__service--left-two {
-  left: 0;
-  top: 448px;
-  width: 280px;
-  min-height: 105px;
-}
-
-.ecms-service-map__service--left-two:hover {
-  transform: translateX(4px);
-}
-
-.ecms-service-map__service--right {
-  right: 0;
-  top: 320px;
-  width: 280px;
-  min-height: 116px;
-}
-
-.ecms-service-map__service--right:hover {
-  transform: translateX(-4px);
-}
-
-.ecms-service-map__service--bottom {
-  left: 50%;
-  top: 610px;
-  transform: translateX(-50%);
-  width: 275px;
-  min-height: 83px;
-  justify-content: center;
-  text-align: center;
-}
-
-.ecms-service-map__service--bottom:hover {
-  transform: translateX(-50%) translateY(4px);
-}
-
-/* Tablet and mobile */
-@media (max-width: 760px) {
-  .ecms-service-map {
-    min-height: auto;
-    padding: 85px 18px 45px;
-  }
-
-  .ecms-service-map__heading {
-    width: 60%;
-    height: 45px;
-    font-size: 19px;
-  }
-
-  .ecms-service-map__heading::before {
-    border-top-width: 45px;
-    border-left-width: 35px;
-  }
-
-  .ecms-service-map__canvas {
-    top: auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-  }
-
-  .ecms-service-map__connectors {
-    display: none;
-  }
-
-  .ecms-service-map__center {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: 165px;
-    height: 165px;
-    order: 0;
-    margin: 5px 0 12px;
-  }
-
-  .ecms-service-map__service,
-  .ecms-service-map__service--top,
-  .ecms-service-map__service--left-one,
-  .ecms-service-map__service--left-two,
-  .ecms-service-map__service--right,
-  .ecms-service-map__service--bottom {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    transform: none !important;
-    width: min(100%, 420px);
-    min-height: 75px;
-    justify-content: space-between;
-    text-align: left;
-    font-size: 19px;
-    order: 1;
-  }
-}
 
 /* ──── Service Individual Pages ──── */
 .service-page-hero {
@@ -2347,7 +2094,7 @@ section.angled-section.section-navy {
   background-attachment: fixed;
   color: #fff;
   padding: 85px 24px 65px;
-  margin-top: 60px;
+  margin-top: 30px;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
@@ -2517,7 +2264,7 @@ section.angled-section.section-navy {
 .ecms-yacht-page {
   position: relative;
   min-height: 860px;
-  margin-top: 80px;
+  margin-top: 35px;
   overflow: hidden;
   padding: 135px 6.5% 55px;
   color: #fff;
@@ -3114,7 +2861,7 @@ section.angled-section.section-navy {
 .ecms-maintenance {
   position: relative;
   min-height: 980px;
-  margin-top: 80px;
+  margin-top: 35px;
   overflow: hidden;
   /* padding: 0 0 35px; */
   background-attachment: fixed !important;
@@ -3293,8 +3040,8 @@ section.angled-section.section-navy {
   grid-template-columns: 46% 54%;
   min-height: 840px;
   overflow: hidden;
-  background: #d5d5d5;
-  color: #111;
+  background: #0a0a0a;
+  color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   padding-top: 85px;
@@ -3321,7 +3068,7 @@ section.angled-section.section-navy {
   overflow: hidden;
 }
 
-/* Yellow founder badge */
+/* Founder badge */
 .ecmfs-founder__label {
   position: absolute;
   top: 40px;
@@ -3330,8 +3077,8 @@ section.angled-section.section-navy {
   width: min(65%, 260px);
   min-height: 48px;
   padding-left: 30px;
-  background: #ffca05;
-  color: #071727;
+  background: rgba(0, 0, 0, .88);
+  color: #fff;
   font-size: 19px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -3339,7 +3086,8 @@ section.angled-section.section-navy {
   display: flex;
   align-items: center;
   clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  border-right: 2px solid rgba(255, 255, 255, .3);
 }
 
 /* Founder portrait showcase */
@@ -3350,7 +3098,7 @@ section.angled-section.section-navy {
   max-width: 85%;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 0 4px rgba(255, 202, 5, 0.9);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 0 4px rgba(255, 255, 255, .55);
   margin-top: 45px;
 }
 
@@ -3361,13 +3109,13 @@ section.angled-section.section-navy {
   object-fit: cover;
 }
 
-/* Right yellow biography panel */
+/* Right black biography panel */
 .ecmfs-founder__content {
   position: relative;
   z-index: 2;
   min-width: 0;
-  padding: 50px 8% 70px 8.5%;
-  background: rgba(255, 202, 5, .95);
+  padding: 90px 8% 50px 8.5%;
+  background: rgba(0, 0, 0, 0.197);
   clip-path: polygon(14% 0, 100% 0, 100% 94%, 44% 100%, 0 100%, 0 10%);
   margin-left: -1px;
 }
@@ -3375,11 +3123,11 @@ section.angled-section.section-navy {
 .ecmfs-founder__bio {
   position: relative;
   z-index: 2;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.55;
   font-weight: 400;
   text-align: justify;
-  color: #1a1a1a;
+  color: #fff;
 }
 
 .ecmfs-founder__bio p {
@@ -3394,7 +3142,7 @@ section.angled-section.section-navy {
   margin: 18px 0 12px;
   font-style: italic;
   font-weight: 600;
-  color: #101010;
+  color: #fff;
 }
 
 .ecmfs-founder__signature {
@@ -3407,7 +3155,7 @@ section.angled-section.section-navy {
   font-size: 21px;
   font-weight: 700;
   line-height: 1.35;
-  color: #111;
+  color: #fff;
 }
 
 .ecmfs-founder__role {
@@ -3415,7 +3163,7 @@ section.angled-section.section-navy {
   margin-top: 4px;
   font-size: 14px;
   font-weight: 600;
-  color: #333;
+  color: rgba(255, 255, 255, .75);
 }
 
 .ecmfs-founder__sign {
@@ -3423,7 +3171,7 @@ section.angled-section.section-navy {
   margin: 8px auto 0;
   width: 120px;
   height: 34px;
-  color: #242424;
+  color: #fff;
 }
 
 /* Website footer watermark */
@@ -3433,7 +3181,7 @@ section.angled-section.section-navy {
   left: 31%;
   bottom: 20px;
   width: 42%;
-  color: rgba(60, 60, 60, .65);
+  color: rgba(255, 255, 255, .4);
   font-size: 11px;
   letter-spacing: 5px;
   text-align: center;
@@ -3545,8 +3293,8 @@ section.angled-section.section-navy {
   }
 
   .ecmfs-founder__portrait {
-    top: 95px;
-    left: 50%;
+    top: 85px;
+    /* left: 50%; */
     transform: translateX(-50%);
     width: 170px;
     height: 210px;
@@ -3751,4 +3499,12 @@ section.angled-section.section-navy {
     line-height: 1.75;
     margin-bottom: 20px;
   }
+}
+
+.ecmfs-founder__content *,
+.ecmfs-founder__visual,
+.ecmfs-founder__visual *,
+.ecmfs-introduction * {
+  opacity: 1 !important;
+  transform: none !important;
 }

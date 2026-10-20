@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router';
 import { ArrowUpRight, Download, Ship } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { about, mission, vision, safety, services, images, vesselConstruction } from './content';
+import { about, mission, vision, safety, services, images, vesselConstruction, founderBio, founderQuote, founderName, founderRole } from './content';
 import { Slide, Photo, Squares } from './Motion';
 
 export function PageHeading({ title, eyebrow, dark }: { title: string; eyebrow: string; dark?: boolean }) {
@@ -18,9 +18,14 @@ const RC_NUMBER = 'RC No: 1879101';
 function AboutCopy({ text }: { text: string }) {
   const parts = text.split(RC_NUMBER);
   if (parts.length === 1) return <>{text}</>;
-  return <>{parts.map((part, i) => (
-    i % 2 === 1 ? <em key={i}>{RC_NUMBER}</em> : <span key={i}>{part}</span>
-  ))}</>;
+  return <>
+    {parts.map((part, i) => (
+      <span key={i}>
+        {part}
+        {i < parts.length - 1 && <em>{RC_NUMBER}</em>}
+      </span>
+    ))}
+  </>;
 }
 
 export function AboutPage() {
@@ -178,7 +183,6 @@ export function AboutPage() {
 }
 
 // Re-export dedicated service page components
-export { ServicesMapPage as ServicesPage } from './services/ServicesMap';
 export { AluminiumSteelUnder85Page as AluminiumSteelPage } from './services/AluminiumSteelUnder85';
 export { AluminiumSteelAbove85Page } from './services/AluminiumSteelAbove85';
 export { ConcreteFloatsPage } from './services/ConcreteFloats';
@@ -217,7 +221,7 @@ export function FounderPage() {
         >
           <img
             src={images.founder}
-            alt="Mr. Okechukwu Nwakwesi — Founder & MD/CEO"
+            alt="Mr. Okey Nwakwesi — Founder & MD/CEO"
             loading="lazy"
           />
         </motion.div>
@@ -232,62 +236,17 @@ export function FounderPage() {
         transition={{ duration: 0.75, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="ecmfs-founder__bio">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Okey Nwakwesi started his career as a Field Engineer in 2004
-            with Fymak Marine &amp; Oil Services Nig. Ltd. He became Executive
-            Director - Operations in 2006 after successfully negotiating
-            a contract award from Chevron Nigeria Limited for the
-            construction of two 170ft x 31ft Fast Support Intervention
-            Vessels. He went on to represent the company from commencement
-            (keel laying) of construction through to completion (Vessel
-            launch) at Horizon Shipbuilding Incorporated in Alabama, USA.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            The value of his contributions to the vessels design and build
-            was duly acknowledged as evidenced by an inscription on the
-            Built By Plaque, which recognised the Owner representative as
-            a partner in the process.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Mr Okey Nwakwesi eventually rose to the position of Managing
-            Director in 2009, a position he held for four years prior to
-            making the decision to step aside in order to explore a career
-            within the construction industry, but always with the intent
-            to return to his passion for marine vessel construction.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Armed with a wealth of experience in the marine and construction
-            industries, which expanded his technical and management
-            knowledge beyond the fields of process engineering and building
-            services engineering (both degrees awarded at Loughborough
-            University in the United Kingdom) to mechanical/marine and civil
-            engineering, he is now poised to apply that knowledge to take
-            on the vast challenges within the fields of shipbuilding and
-            concrete flotation systems building.
-          </motion.p>
+          {founderBio.map((p, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {p}
+            </motion.p>
+          ))}
 
           <motion.p
             className="ecmfs-founder__quote"
@@ -296,10 +255,7 @@ export function FounderPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            "It is with great enthusiasm that I look forward to making a mark
-            in the marine asset construction industry in Nigeria, as it is
-            clear that there remains a lot to be done to grow the industry,
-            and I remain bullish about the future prospects".
+            "{founderQuote}".
           </motion.p>
 
           <motion.div
@@ -310,11 +266,11 @@ export function FounderPage() {
             transition={{ duration: 0.6, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="ecmfs-founder__name">
-              Mr. Okechukwu Nwakwesi
+              {founderName}
             </span>
 
             <span className="ecmfs-founder__role">
-              MD/CEO ECMFS Shipyard
+              {founderRole}
             </span>
           </motion.div>
         </div>
