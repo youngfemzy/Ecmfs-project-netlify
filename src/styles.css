@@ -787,7 +787,7 @@ section.angled-section.section-navy {
   position: relative;
   min-width: 0;
   background:
-    url("/img/vessel/kena-photo.jpg") center center / cover no-repeat;
+    url("/img/hero.jpg") center center / cover no-repeat;
 }
 
 /* Tablet */
@@ -1587,7 +1587,7 @@ section.angled-section.section-navy {
 .mission-vision-section {
   position: relative;
   width: 100%;
-  min-height: 650px;
+  min-height: 720px;
   background-image: url('/img/ref-pilot1.jpg');
   background-size: cover;
   background-position: center;
@@ -3040,7 +3040,10 @@ section.angled-section.section-navy {
   grid-template-columns: 46% 54%;
   min-height: 840px;
   overflow: hidden;
-  background: #0a0a0a;
+  /* Shipyard photo runs behind both panels; the text panel is only lightly scrimmed */
+  background:
+    linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .55)),
+    url("/img/hero/hero-alt.jpg") center center / cover no-repeat;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
@@ -3053,13 +3056,11 @@ section.angled-section.section-navy {
   box-sizing: border-box;
 }
 
-/* Background on the left with black transparent overlay and founder portrait */
+/* Left visual — extra darkening over the section photo so the portrait pops */
 .ecmfs-founder__visual {
   position: relative;
   min-height: 755px;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.72)),
-    url("/img/hero/hero-alt.jpg") center center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .6));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -3077,7 +3078,7 @@ section.angled-section.section-navy {
   width: min(65%, 260px);
   min-height: 48px;
   padding-left: 30px;
-  background: rgba(0, 0, 0, .88);
+  background: blue;
   color: #fff;
   font-size: 19px;
   font-weight: 800;
@@ -3109,13 +3110,13 @@ section.angled-section.section-navy {
   object-fit: cover;
 }
 
-/* Right black biography panel */
+/* Right biography panel — light black so the shipyard photo shows through */
 .ecmfs-founder__content {
   position: relative;
   z-index: 2;
   min-width: 0;
   padding: 90px 8% 50px 8.5%;
-  background: rgba(0, 0, 0, 0.197);
+  background: rgba(0, 0, 0, .12);
   clip-path: polygon(14% 0, 100% 0, 100% 94%, 44% 100%, 0 100%, 0 10%);
   margin-left: -1px;
 }
@@ -3273,11 +3274,11 @@ section.angled-section.section-navy {
     display: flex;
     flex-direction: column;
     padding-top: 75px;
+    background-position: center 30%;
   }
 
   .ecmfs-founder__visual {
     min-height: 380px;
-    background-position: center 35%;
   }
 
   .ecmfs-founder__label {
@@ -3349,7 +3350,7 @@ section.angled-section.section-navy {
 /* Top safety image banner */
 .ecmfs-hse__hero {
   position: relative;
-  height: 337px;
+  height: 437px;
   background:
     linear-gradient(rgba(0, 0, 0, .08), rgba(0, 0, 0, .08)),
     url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85") center 48% / cover no-repeat;
@@ -3437,7 +3438,7 @@ section.angled-section.section-navy {
 /* Tablet */
 @media (max-width: 900px) {
   .ecmfs-hse__hero {
-    height: 300px;
+    height: 400px;
   }
 
   .ecmfs-hse__top-label {
