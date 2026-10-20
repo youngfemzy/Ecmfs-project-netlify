@@ -15,7 +15,7 @@ export function ContactPage() {
           <p>
             <strong>Jetty location:</strong> The Leisure Park, #6 Wole Olateju Crescent, off Admiralty way, Lekki Phase One, Lagos, Nigeria.<br />
             <a href="tel:+2348038457735">(+234)-803 845 7735</a>,{' '}
-            <a href="tel:+2348188255176">0818 825 5176</a>;{' '}
+            <a href="tel:+234817-339-6938"> (+234)817-339-6938. </a>;{' '}
             <a href="tel:+12802067">1-280 2067</a><br />
             <a href="mailto:info@ecmfsshipbuilding.com">
               info@ecmfsshipbuilding.com

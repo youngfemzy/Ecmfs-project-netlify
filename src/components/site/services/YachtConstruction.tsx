@@ -30,29 +30,16 @@ export function YachtConstructionPage() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <p>
-            In the Lagos Metropolis, fun in the sun on the water has become a
-            popular feature in the leisure activity mix. Short trips around the
-            lagoon and mid-range trips to beach resorts and boat clubs has
-            become the day-trip event to look forward to at the end of a
-            grueling working week.
+            In the Lagos Metropolis, fun in the sun on the water has become a popular feature in the leisure activity mix. Short trips around the lagoon and mid-range trips to beach resorts and boat clubs has become the day-trip event to look forward to at the end of a grueling work week. Why not take it a step further by investing in one of our mini-yacht designs guaranteed to create an ambience on water that challenges the notion that man was not built for the sea.
             <br />
             <br />
-            Why not take it a step further by investing in one of our mini-yacht
-            designs guaranteed to create an ambience on water that challenges
-            the notion that man was not built for the sea. Our partner in Yacht
-            design and fabrication, Forepeak design LLC are in the business of
-            delivering cutting-edge yacht designs. We invite you to treat
-            yourself to a new world of waterway leisure. Be one of the first to
-            own one of our mini-yacht range.
+            Our partner in Yacht design and fabrication, Forepeak design LLC are in the business of delivering cutting-edge yacht designs. We invite you to treat yourself to a new world of waterway leisure. Be one of the first to own one of our mini-yacht range.
+            <br />
+            For those who are seeking something bigger and bolder within the much more exclusive price range, we may have just the products for you. We work closely with the "Sunseeker Yachts" brand as well as other luxury brands.
           </p>
 
           <p>
-            For those who are seeking something bigger and bolder within the much
-            more exclusive price range, we may have just the products for you.
-            We work closely with the "Sunseeker Yachts" brand as well as other
-            luxury brands. We are well positioned to assist in facilitating
-            deliveries, developing jetties and jetty approaches as well as day to
-            day management/maintenance.
+            We are well positioned to assist in facilitating deliveries, developing jetties and jetty approaches as well as day to day management/maintenance.
           </p>
 
           <motion.div
@@ -127,8 +114,8 @@ export function YachtConstructionPage() {
               50ft Sporting Yacht
             </div>
             <div className="ecms-yacht-page__deck-buttons">
-              <span>Main Deck</span>
-              <span>Below Deck</span>
+              {/* <span>Main Deck</span> */}
+              {/* <span>Below Deck</span> */}
             </div>
           </motion.div>
 
@@ -141,7 +128,7 @@ export function YachtConstructionPage() {
             transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="ecms-yacht-page__deck-buttons">
-              <span>Main Deck</span>
+              {/* <span>Main Deck</span> */}
               <span>Below Deck</span>
             </div>
             <img

@@ -101,7 +101,7 @@ export function AboutPage() {
             To realize operational excellence in our field of expertise
             in order to be competitive in the global marketplace, and
             thereby secure a sizeable market share within Nigeria and
-            regional market.
+            regional markets.
           </p>
         </motion.div>
       </div>
