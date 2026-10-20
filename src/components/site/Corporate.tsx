@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowUpRight, Download } from 'lucide-react';
+import { ArrowUpRight, Download, Ship } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { about, mission, vision, safety, services, images, vesselConstruction } from './content';
@@ -12,18 +12,34 @@ export function PageHeading({ title, eyebrow, dark }: { title: string; eyebrow: 
   </div>
 }
 
+const RC_NUMBER = 'RC No: 1879101';
+
+/** Renders a paragraph, italicising the RC number. */
+function AboutCopy({ text }: { text: string }) {
+  const parts = text.split(RC_NUMBER);
+  if (parts.length === 1) return <>{text}</>;
+  return <>{parts.map((part, i) => (
+    i % 2 === 1 ? <em key={i}>{RC_NUMBER}</em> : <span key={i}>{part}</span>
+  ))}</>;
+}
+
 export function AboutPage() {
   return <>
-    <PageHeading title="About ECMFS" eyebrow="ECMFS Shipbuilding" />
-
-    {/* Intro section */}
-    <section className="site-container about-intro">
-      <Slide index={0}><Photo src={images.kena} alt="MV KENA on the slipway at the Lekki facility" className="about-intro-photo" /></Slide>
-      <Slide index={1}>
-        <div className="body-copy">
-          {about.map(p => <p key={p.slice(0, 30)}>{p}</p>)}
-        </div>
-      </Slide>
+    {/* Introduction */}
+    <section className="ecmfs-introduction">
+      <div className="ecmfs-introduction__main">
+        <Slide index={0}>
+          <h2 className="ecmfs-introduction__heading">Introduction</h2>
+          <div className="ecmfs-introduction__copy">
+            {about.map((p, i) => <p key={i}><AboutCopy text={p} /></p>)}
+          </div>
+        </Slide>
+      </div>
+      <div
+        className="ecmfs-introduction__side-image"
+        role="img"
+        aria-label="MV KENA on the slipway at the ECMFS Lekki shipyard"
+      />
     </section>
 
     {/* Vessel Construction */}
@@ -174,23 +190,54 @@ export function FounderPage() {
   return <>
     {/* Brochure Founder Section */}
     <section className="ecmfs-founder">
-      {/* Left grayscale visual */}
-      <div className="ecmfs-founder__visual">
-        <div className="ecmfs-founder__label">Founder</div>
+      {/* Left visual with hero-alt background and founder portrait */}
+      <motion.div
+        className="ecmfs-founder__visual"
+        initial={{ opacity: 0, x: -45 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <motion.div
+          className="ecmfs-founder__label"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Founder
+        </motion.div>
 
-        <div className="ecmfs-founder__portrait">
+        <motion.div
+          className="ecmfs-founder__portrait"
+          initial={{ opacity: 0, scale: 0.88, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        >
           <img
             src={images.founder}
             alt="Mr. Okechukwu Nwakwesi — Founder & MD/CEO"
             loading="lazy"
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Right biography panel */}
-      <div className="ecmfs-founder__content">
+      <motion.div
+        className="ecmfs-founder__content"
+        initial={{ opacity: 0, x: 45 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.75, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="ecmfs-founder__bio">
-          <p>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          >
             Okey Nwakwesi started his career as a Field Engineer in 2004
             with Fymak Marine &amp; Oil Services Nig. Ltd. He became Executive
             Director - Operations in 2006 after successfully negotiating
@@ -199,24 +246,39 @@ export function FounderPage() {
             Vessels. He went on to represent the company from commencement
             (keel laying) of construction through to completion (Vessel
             launch) at Horizon Shipbuilding Incorporated in Alabama, USA.
-          </p>
+          </motion.p>
 
-          <p>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
             The value of his contributions to the vessels design and build
             was duly acknowledged as evidenced by an inscription on the
             Built By Plaque, which recognised the Owner representative as
             a partner in the process.
-          </p>
+          </motion.p>
 
-          <p>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
             Mr Okey Nwakwesi eventually rose to the position of Managing
             Director in 2009, a position he held for four years prior to
             making the decision to step aside in order to explore a career
             within the construction industry, but always with the intent
             to return to his passion for marine vessel construction.
-          </p>
+          </motion.p>
 
-          <p>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
             Armed with a wealth of experience in the marine and construction
             industries, which expanded his technical and management
             knowledge beyond the fields of process engineering and building
@@ -225,16 +287,28 @@ export function FounderPage() {
             engineering, he is now poised to apply that knowledge to take
             on the vast challenges within the fields of shipbuilding and
             concrete flotation systems building.
-          </p>
+          </motion.p>
 
-          <p className="ecmfs-founder__quote">
+          <motion.p
+            className="ecmfs-founder__quote"
+            initial={{ opacity: 0, scale: 0.96, y: 15 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
             "It is with great enthusiasm that I look forward to making a mark
             in the marine asset construction industry in Nigeria, as it is
             clear that there remains a lot to be done to grow the industry,
             and I remain bullish about the future prospects".
-          </p>
+          </motion.p>
 
-          <div className="ecmfs-founder__signature">
+          <motion.div
+            className="ecmfs-founder__signature"
+            initial={{ opacity: 0, scale: 0.92 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          >
             <span className="ecmfs-founder__name">
               Mr. Okechukwu Nwakwesi
             </span>
@@ -242,28 +316,9 @@ export function FounderPage() {
             <span className="ecmfs-founder__role">
               MD/CEO ECMFS Shipyard
             </span>
-
-            {/* Decorative signature */}
-            <svg
-              className="ecmfs-founder__sign"
-              viewBox="0 0 140 40"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M8 25 C32 4, 66 8, 122 4
-                   C98 16, 65 21, 29 27
-                   C53 26, 85 21, 104 25
-                   L43 34 L74 35 L66 39"
-                stroke="currentColor"
-                stroke-width="2.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
 
     {/* Technical Partners Section with logos from public/img/partners */}
@@ -273,7 +328,7 @@ export function FounderPage() {
           <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
             <p className="eyebrow" style={{ color: '#ffca05' }}><Squares />Strategic Alliances</p>
             <h2 style={{ color: '#fff', fontSize: '2rem', textTransform: 'uppercase', marginBottom: '1rem' }}>
-              Technical Partners &amp; Affiliates
+              Technical Partners
             </h2>
             <p style={{ color: '#c3d5ea', fontSize: '1.05rem', lineHeight: '1.7' }}>
               Our value proposition is underpinned by robust international partnerships with leading naval architects, marine engineers, and global boat builders.
@@ -306,11 +361,11 @@ export function ResourcesPage() {
       <Slide>
         <p className="eyebrow"><Squares />Downloads & Media</p>
         <h2>Company Resources</h2>
-        <p className="large-copy">Download our company brochure and access key resources about ECMFS Shipbuilding's services, capabilities, and expertise.</p>
+        <p className="large-copy">Download our company brochure, vessel brochures, and access key resources about ECMFS Shipbuilding's services, capabilities, and expertise.</p>
       </Slide>
 
       <div className="resources-grid">
-        <Slide className="resource-card">
+        <Slide className="resource-card" index={0}>
           <div className="resource-icon">
             <Download size={32} />
           </div>
@@ -319,6 +374,25 @@ export function ResourcesPage() {
             <p>Our comprehensive company brochure covering all services, vessel construction capabilities, concrete float systems, and partnership details.</p>
             <a href="/downloads/ECMFS-brochure.pdf" target="_blank" rel="noopener noreferrer" className="resource-download-btn" download>
               <Download size={16} /> Download Brochure (PDF)
+            </a>
+          </div>
+        </Slide>
+
+        <Slide className="resource-card" index={1}>
+          <div className="resource-icon">
+            <Ship size={32} />
+          </div>
+          <div className="resource-info">
+            <h3>MV KENA — Vessel Build Specification</h3>
+            <p>
+              The complete build specification for our maiden vessel, MV KENA.
+              Steel hull with aluminium superstructure, 9.85&nbsp;m overall
+              length, 200&nbsp;BHP outboard propulsion, and full schedules of
+              capacities, wheelhouse, navigation, communications and safety
+              equipment.
+            </p>
+            <a href="/downloads/MV-KENA-Vessel-Build-Specification.pdf" target="_blank" rel="noopener noreferrer" className="resource-download-btn" download>
+              <Download size={16} /> Download Specification (PDF)
             </a>
           </div>
         </Slide>

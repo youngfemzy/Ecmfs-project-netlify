@@ -1,4 +1,4 @@
-export function ContactPage(){
+export function ContactPage() {
   return (
     <section className="ecmfs-contact-section">
       <div className="ecmfs-contact-content">
@@ -17,8 +17,8 @@ export function ContactPage(){
             <a href="tel:+2348038457735">(+234)-803 845 7735</a>,{' '}
             <a href="tel:+2348188255176">0818 825 5176</a>;{' '}
             <a href="tel:+12802067">1-280 2067</a><br />
-            <a href="mailto:sales@ecmfsboatsandfloats.com.ng">
-              sales@ecmfsboatsandfloats.com.ng
+            <a href="mailto:info@ecmfsboatsandfloats.com.ng">
+              info@ecmfsboatsandfloats.com.ng
             </a>
           </p>
         </div>

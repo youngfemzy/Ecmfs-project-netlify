@@ -65,6 +65,8 @@
   --input: #c9d6ee;
   --ring: var(--royal);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Fixed header height — brand logo (7.5rem) + nav-row padding (0.7rem) */
+  --nav-h: 8.2rem;
 }
 
 @layer base {
@@ -185,8 +187,8 @@
 }
 
 .brand img {
-  height: 6rem;
-  width: 6rem;
+  height: 7.5rem;
+  width: 7.5rem;
   border-radius: 9999px;
   object-fit: contain;
   transition: transform 0.25s var(--ease);
@@ -198,8 +200,13 @@
 
 @media (max-width: 640px) {
   .brand img {
-    height: 4.2rem;
-    width: 4.2rem;
+    height: 5rem;
+    width: 5rem;
+  }
+
+  /* Brand logo (5rem) + nav-row padding (0.7rem) */
+  :root {
+    --nav-h: 5.7rem;
   }
 }
 
@@ -605,7 +612,7 @@ section.angled-section.section-navy {
 }
 
 .hero-registration {
-  margin-top: 2.5rem;
+  margin-top: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -690,45 +697,135 @@ section.angled-section.section-navy {
   }
 }
 
-/* About */
-.about-intro {
+/* About — Introduction (dark full-bleed panel) */
+.ecmfs-introduction {
+  position: relative;
   display: grid;
-  gap: 3rem;
-  align-items: center;
-  padding-block: 4rem 6rem;
+  grid-template-columns: 80% 20%;
+  width: 100%;
+  min-height: 797px;
+  overflow: hidden;
+  background: #4d6580;
+  color: #fff;
+  font-family: var(--font-sans);
+  box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
-  .about-intro {
-    grid-template-columns: 1fr 1fr;
+.ecmfs-introduction *,
+.ecmfs-introduction *::before,
+.ecmfs-introduction *::after {
+  box-sizing: border-box;
+}
+
+/* Main background image with slate-blue overlay */
+.ecmfs-introduction__main {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  padding: calc(var(--nav-h) + 1.75rem) 7.8% 65px 10.1%;
+  background:
+    linear-gradient(rgba(38, 62, 89, .83),
+      rgba(38, 62, 89, .83)),
+    url("/img/hero/hero-alt.jpg") center center / cover no-repeat;
+}
+
+/* Bright cyan heading */
+.ecmfs-introduction__heading {
+  margin: 0 0 35px;
+  color: #00b8f0;
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ecmfs-introduction__copy {
+  max-width: 100%;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.9;
+  text-align: justify;
+}
+
+.ecmfs-introduction__copy p {
+  margin: 0 0 36px;
+}
+
+.ecmfs-introduction__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.ecmfs-introduction__copy em {
+  font-style: italic;
+}
+
+/* Narrow, uncovered image strip on the right */
+.ecmfs-introduction__side-image {
+  position: relative;
+  min-width: 0;
+  background:
+    url("/img/vessel/kena-photo.jpg") center center / cover no-repeat;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .ecmfs-introduction {
+    grid-template-columns: 76% 24%;
+    min-height: 720px;
+  }
+
+  .ecmfs-introduction__main {
+    padding: calc(var(--nav-h) + 1.25rem) 7% 55px 8%;
+  }
+
+  .ecmfs-introduction__heading {
+    margin-bottom: 25px;
+    font-size: 22px;
+  }
+
+  .ecmfs-introduction__copy {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .ecmfs-introduction__copy p {
+    margin-bottom: 27px;
   }
 }
 
-.about-intro .photo-mask,
-.about-intro-photo {
-  max-height: 380px;
-  width: 100%;
-}
-
-.about-intro .clean-photo,
-.about-intro-photo .clean-photo {
-  max-height: 380px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-}
-
-@media (max-width: 768px) {
-
-  .about-intro .photo-mask,
-  .about-intro-photo {
-    max-height: 290px;
+/* Mobile */
+@media (max-width: 600px) {
+  .ecmfs-introduction {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
 
-  .about-intro .clean-photo,
-  .about-intro-photo .clean-photo {
-    max-height: 290px;
+  .ecmfs-introduction__main {
+    padding: calc(var(--nav-h) + 1rem) 23px 40px;
+  }
+
+  .ecmfs-introduction__heading {
+    margin-bottom: 22px;
+    font-size: 21px;
+  }
+
+  .ecmfs-introduction__copy {
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: left;
+  }
+
+  .ecmfs-introduction__copy p {
+    margin-bottom: 24px;
+  }
+
+  .ecmfs-introduction__side-image {
+    min-height: 230px;
+    background-position: center 55%;
   }
 }
 
@@ -2250,6 +2347,7 @@ section.angled-section.section-navy {
   background-attachment: fixed;
   color: #fff;
   padding: 85px 24px 65px;
+  margin-top: 60px;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
@@ -2419,6 +2517,7 @@ section.angled-section.section-navy {
 .ecms-yacht-page {
   position: relative;
   min-height: 860px;
+  margin-top: 80px;
   overflow: hidden;
   padding: 135px 6.5% 55px;
   color: #fff;
@@ -2789,6 +2888,7 @@ section.angled-section.section-navy {
   position: relative;
   min-height: 860px;
   padding: 110px 3.8% 55px;
+  margin-top: 80px;
   background-attachment: fixed !important;
   overflow: hidden;
   background:
@@ -3014,6 +3114,7 @@ section.angled-section.section-navy {
 .ecms-maintenance {
   position: relative;
   min-height: 980px;
+  margin-top: 80px;
   overflow: hidden;
   /* padding: 0 0 35px; */
   background-attachment: fixed !important;
@@ -3205,18 +3306,59 @@ section.angled-section.section-navy {
   box-sizing: border-box;
 }
 
-/* Grayscale background on the left with founder composite */
+/* Background on the left with black transparent overlay and founder portrait */
 .ecmfs-founder__visual {
   position: relative;
   min-height: 755px;
   background:
-    url("/img/founder_left_composite.png") center center / cover no-repeat;
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.72)),
+    url("/img/hero/hero-alt.jpg") center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+  overflow: hidden;
 }
 
-/* Hide duplicate HTML banner and portrait on desktop */
-.ecmfs-founder__label,
+/* Yellow founder badge */
+.ecmfs-founder__label {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 4;
+  width: min(65%, 260px);
+  min-height: 48px;
+  padding-left: 30px;
+  background: #ffca05;
+  color: #071727;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Founder portrait showcase */
 .ecmfs-founder__portrait {
-  display: none;
+  position: relative;
+  z-index: 3;
+  width: 320px;
+  max-width: 85%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 0 4px rgba(255, 202, 5, 0.9);
+  margin-top: 45px;
+}
+
+.ecmfs-founder__portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 /* Right yellow biography panel */

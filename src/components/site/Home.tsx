@@ -56,10 +56,13 @@ export function HomePage() {
                     <Letters text="SHIPBUILDING" start={.45} />
                 </h1>
                 <p className="hero-headline">
-                    <Words text={`${company}, Lekki, Lagos.`} start={1.25} />
+                    <Words text={`${company}.`} start={1.25} />
                 </p>
+                <p className="hero-registration"><Squares /> RC No: 1879101</p>
                 <p className="hero-subline">
-                    <Words text="ALUMINIUM & STEEL BOAT BUILDERS. CONCRETE FLOTATION SYSTEMS." start={1.65} />
+                    <Words text="ALUMINIUM & STEEL BOAT BUILDERS." start={1.65} />
+                    <br />
+                    <Words text="CONCRETE FLOTATION SYSTEM BUILDERS." start={1.65} />
                 </p>
                 <motion.div
                     className="hero-actions"
@@ -71,7 +74,6 @@ export function HomePage() {
                         <Link to="/contact">Get in Touch <ArrowUpRight /></Link>
                     </Button>
                 </motion.div>
-                <p className="hero-registration"><Squares /> RC No: 1879101</p>
                 <div className="hero-tiles">
                     {([['About Us', '/about'], ['Services', '/services'], ['Founder', '/founder'], ['Contact', '/contact']] as const).map(([label, to], i) => (
                         <motion.div
