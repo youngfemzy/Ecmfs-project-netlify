@@ -2239,7 +2239,7 @@ section.angled-section.section-navy {
 
 .ecms-boat-above p {
   color: #eef3fc;
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.7;
   margin-bottom: 16px;
 }
@@ -2350,7 +2350,7 @@ section.angled-section.section-navy {
 
 /* Left-side description */
 .ecms-yacht-page__text {
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.62;
   font-weight: 400;
   text-align: justify;
@@ -2949,7 +2949,7 @@ section.angled-section.section-navy {
 
 .ecms-maintenance__copy {
   max-width: 680px;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 400;
   line-height: 1.72;
   text-align: justify;
@@ -3085,7 +3085,7 @@ section.angled-section.section-navy {
 .ecmfs-founder__visual {
   position: relative;
   min-height: 755px;
-  background: linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .6));
+  background: linear-gradient(rgba(0, 0, 0, 0.206), rgba(0, 0, 0, 0.292));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -3125,7 +3125,8 @@ section.angled-section.section-navy {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 0 4px rgba(255, 255, 255, .55);
-  margin-top: 45px;
+  margin-top: -70px;
+  margin-right: 40px;
 }
 
 .ecmfs-founder__portrait img {
@@ -3141,7 +3142,7 @@ section.angled-section.section-navy {
   z-index: 2;
   min-width: 0;
   padding: 90px 8% 50px 8.5%;
-  background: rgba(0, 0, 0, .12);
+  background: rgba(0, 0, 0, 0.638);
   clip-path: polygon(14% 0, 100% 0, 100% 94%, 44% 100%, 0 100%, 0 10%);
   margin-left: -1px;
 }
@@ -3149,7 +3150,7 @@ section.angled-section.section-navy {
 .ecmfs-founder__bio {
   position: relative;
   z-index: 2;
-  font-size: 16px;
+  font-size: 19px;
   line-height: 1.55;
   font-weight: 400;
   text-align: justify;

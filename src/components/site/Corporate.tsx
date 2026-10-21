@@ -326,7 +326,7 @@ export function ResourcesPage() {
             <Download size={32} />
           </div>
           <div className="resource-info">
-            <h3>ECMFS Company Profile & Brochure</h3>
+            <h3>ECMFS Company Brochure</h3>
             <p>Our comprehensive company brochure covering all services, vessel construction capabilities, concrete float systems, and partnership details.</p>
             <a href="/downloads/ECMFS-brochure.pdf" target="_blank" rel="noopener noreferrer" className="resource-download-btn" download>
               <Download size={16} /> Download Brochure (PDF)
