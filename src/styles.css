@@ -438,7 +438,7 @@
 .body-copy {
   display: grid;
   gap: 1.25rem;
-  font-size: 1.05rem;
+  font-size: 19px;
   line-height: 1.7;
   color: var(--muted-foreground);
   text-align: justify;
