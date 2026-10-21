@@ -53,7 +53,7 @@ export function AboutPage() {
         <Slide index={0}><Photo src={images.shipyard} alt="Large vessel at the Lagos shipyard" /></Slide>
         <Slide index={1}>
           <p className="eyebrow"><Squares />Expertise</p>
-          <h2 >Vessel Construction</h2>
+          <p className='ecmfs-introduction__heading'>Vessel Construction</p>
           <div className="body-copy">
             {vesselConstruction.map((p, i) => <p key={i}>{p}</p>)}
           </div>
